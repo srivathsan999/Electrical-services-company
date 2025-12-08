@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Management - Admin Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            background-color: var(--bg-light);
+        }
+        .admin-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: var(--bg-color);
+            border-right: 1px solid var(--border-color);
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        .admin-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+        .admin-header {
+            background-color: var(--bg-color);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            .admin-sidebar.show {
+                transform: translateX(0);
+            }
+            .admin-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+        <div class="mb-4">
+            <h4><i class="fas fa-bolt text-primary"></i> Admin Panel</h4>
+        </div>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="dashboard.html">
+                <i class="fas fa-home me-2"></i>Dashboard
+            </a>
+            <a class="nav-link" href="users.html">
+                <i class="fas fa-users me-2"></i>Users
+            </a>
+            <a class="nav-link active" href="orders.html">
+                <i class="fas fa-shopping-cart me-2"></i>Orders
+            </a>
+            <a class="nav-link" href="messages.html">
+                <i class="fas fa-envelope me-2"></i>Messages
+            </a>
+            <hr>
+            <a class="nav-link" href="../index.html">
+                <i class="fas fa-globe me-2"></i>View Website
+            </a>
+            <a class="nav-link" href="login.html">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+        </nav>
+        <div class="mt-4">
+            <button class="theme-toggle btn btn-sm btn-outline-primary w-100">
+                <i class="fas fa-moon"></i> Toggle Theme
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <!-- Header -->
+        <div class="admin-header d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn btn-outline-primary d-md-none" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h4 class="d-inline ms-2">Orders Management</h4>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-primary">
+                    <i class="fas fa-download me-2"></i>Export
+                </button>
+                <button class="theme-toggle btn btn-sm btn-outline-primary">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted mb-2">Total Orders</h6>
+                        <h3 class="mb-0">1,234</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted mb-2">Pending</h6>
+                        <h3 class="mb-0 text-warning">45</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted mb-2">In Progress</h6>
+                        <h3 class="mb-0 text-info">78</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="text-muted mb-2">Completed</h6>
+                        <h3 class="mb-0 text-success">1,111</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Search orders...">
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select">
+                            <option>All Status</option>
+                            <option>Pending</option>
+                            <option>In Progress</option>
+                            <option>Completed</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary w-100">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Table -->
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Service</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>#1234</strong></td>
+                                <td>John Smith</td>
+                                <td>Electrical Installation</td>
+                                <td>$299</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>2024-03-15</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline-success"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#1235</strong></td>
+                                <td>Maria Johnson</td>
+                                <td>Maintenance & Repair</td>
+                                <td>$199</td>
+                                <td><span class="badge bg-warning">In Progress</span></td>
+                                <td>2024-03-15</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline-success"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#1236</strong></td>
+                                <td>Robert Williams</td>
+                                <td>Emergency Service</td>
+                                <td>$350</td>
+                                <td><span class="badge bg-info">Pending</span></td>
+                                <td>2024-03-14</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline-success"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#1237</strong></td>
+                                <td>Emily Davis</td>
+                                <td>Smart Home Solutions</td>
+                                <td>$1,500</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>2024-03-13</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline-success"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>#1238</strong></td>
+                                <td>Michael Brown</td>
+                                <td>Commercial Electrical</td>
+                                <td>$2,500</td>
+                                <td><span class="badge bg-warning">In Progress</span></td>
+                                <td>2024-03-12</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-sm btn-outline-success"><i class="fas fa-edit"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.admin-sidebar').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
+

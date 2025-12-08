@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Management - Admin Dashboard</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        body {
+            background-color: var(--bg-light);
+        }
+        .admin-sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: var(--bg-color);
+            border-right: 1px solid var(--border-color);
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+        .admin-content {
+            margin-left: 250px;
+            padding: 2rem;
+        }
+        .admin-header {
+            background-color: var(--bg-color);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            .admin-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            .admin-sidebar.show {
+                transform: translateX(0);
+            }
+            .admin-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+        <div class="mb-4">
+            <h4><i class="fas fa-bolt text-primary"></i> Admin Panel</h4>
+        </div>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="dashboard.html">
+                <i class="fas fa-home me-2"></i>Dashboard
+            </a>
+            <a class="nav-link active" href="users.html">
+                <i class="fas fa-users me-2"></i>Users
+            </a>
+            <a class="nav-link" href="orders.html">
+                <i class="fas fa-shopping-cart me-2"></i>Orders
+            </a>
+            <a class="nav-link" href="messages.html">
+                <i class="fas fa-envelope me-2"></i>Messages
+            </a>
+            <hr>
+            <a class="nav-link" href="../index.html">
+                <i class="fas fa-globe me-2"></i>View Website
+            </a>
+            <a class="nav-link" href="login.html">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+        </nav>
+        <div class="mt-4">
+            <button class="theme-toggle btn btn-sm btn-outline-primary w-100">
+                <i class="fas fa-moon"></i> Toggle Theme
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <!-- Header -->
+        <div class="admin-header d-flex justify-content-between align-items-center">
+            <div>
+                <button class="btn btn-outline-primary d-md-none" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h4 class="d-inline ms-2">Users Management</h4>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <button class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i>Add New User
+                </button>
+                <button class="theme-toggle btn btn-sm btn-outline-primary">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" placeholder="Search users...">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select">
+                            <option>All Roles</option>
+                            <option>Admin</option>
+                            <option>Customer</option>
+                            <option>Electrician</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select">
+                            <option>All Status</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary w-100">Filter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox">
+                                </th>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 40px; height: 40px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">JD</div>
+                                        <div>
+                                            <strong>John Davis</strong><br>
+                                            <small class="text-muted">ID: #1001</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>john.davis@example.com</td>
+                                <td><span class="badge bg-danger">Admin</span></td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>2024-01-15</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 40px; height: 40px; background: var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">SM</div>
+                                        <div>
+                                            <strong>Sarah Martinez</strong><br>
+                                            <small class="text-muted">ID: #1002</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>sarah.martinez@example.com</td>
+                                <td><span class="badge bg-info">Electrician</span></td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>2024-02-20</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 40px; height: 40px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">MW</div>
+                                        <div>
+                                            <strong>Michael Wilson</strong><br>
+                                            <small class="text-muted">ID: #1003</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>michael.wilson@example.com</td>
+                                <td><span class="badge bg-secondary">Customer</span></td>
+                                <td><span class="badge bg-success">Active</span></td>
+                                <td>2024-03-01</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div style="width: 40px; height: 40px; background: var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 1rem;">ET</div>
+                                        <div>
+                                            <strong>Emily Thompson</strong><br>
+                                            <small class="text-muted">ID: #1004</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>emily.thompson@example.com</td>
+                                <td><span class="badge bg-secondary">Customer</span></td>
+                                <td><span class="badge bg-warning">Inactive</span></td>
+                                <td>2024-03-10</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.admin-sidebar').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
+

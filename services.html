@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive electrical services for residential and commercial properties">
+    <title>Our Services - Electrical Services Company</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .services-list {
+            display: none;
+        }
+        .services-list .service-item {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        .view-toggle button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+            cursor: pointer;
+        }
+        .view-toggle button.active {
+            background: var(--primary-color);
+            color: var(--dark-color);
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bolt"></i> Electrical Services</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                            <li><a class="dropdown-item" href="index-niche.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="services.html">All Services</a></li>
+                            <li><a class="dropdown-item" href="service-details.html">Service Details</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><button class="theme-toggle"><i class="fas fa-moon"></i></button></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="contact.html">Get a Free Quote</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero-section" style="padding: 80px 0;">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Our Services</h1>
+            <p class="lead">Comprehensive electrical solutions for every need</p>
+        </div>
+    </section>
+
+    <!-- Category Filters -->
+    <section class="section">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary active" onclick="filterServices('all')">All Services</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('residential')">Residential</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('commercial')">Commercial</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('emergency')">Emergency</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('smart')">Smart Home</button>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-grid active" onclick="toggleView('grid')"><i class="fas fa-th"></i> Grid</button>
+                    <button class="view-list" onclick="toggleView('list')"><i class="fas fa-list"></i> List</button>
+                </div>
+            </div>
+
+            <!-- Grid View -->
+            <div class="services-grid" id="servicesGrid">
+                <div class="service-card" data-category="residential">
+                    <div class="icon"><i class="fas fa-plug"></i></div>
+                    <h3>Electrical Installation</h3>
+                    <p>Professional installation of electrical systems, wiring, outlets, and fixtures for new constructions and renovations.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+                <div class="service-card" data-category="residential commercial">
+                    <div class="icon"><i class="fas fa-tools"></i></div>
+                    <h3>Maintenance & Repair</h3>
+                    <p>Regular maintenance and prompt repair services to keep your electrical systems running safely and efficiently.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+                <div class="service-card" data-category="emergency">
+                    <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>Emergency Services</h3>
+                    <p>24/7 emergency electrical services to handle urgent issues and ensure your safety at any time of day.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+                <div class="service-card" data-category="smart residential">
+                    <div class="icon"><i class="fas fa-home"></i></div>
+                    <h3>Smart Home Solutions</h3>
+                    <p>Modern smart home automation including lighting control, security systems, and energy management.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+                <div class="service-card" data-category="commercial">
+                    <div class="icon"><i class="fas fa-building"></i></div>
+                    <h3>Commercial Electrical</h3>
+                    <p>Complete electrical solutions for businesses, offices, retail spaces, and industrial facilities.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+                <div class="service-card" data-category="residential commercial">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>LED Lighting</h3>
+                    <p>Energy-efficient LED lighting installation and upgrades to reduce costs and improve illumination.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+                <div class="service-card" data-category="residential">
+                    <div class="icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Panel Upgrades</h3>
+                    <p>Electrical panel upgrades and replacements to meet modern power demands and improve safety.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+                <div class="service-card" data-category="commercial">
+                    <div class="icon"><i class="fas fa-industry"></i></div>
+                    <h3>Industrial Electrical</h3>
+                    <p>Specialized electrical services for manufacturing facilities, warehouses, and industrial complexes.</p>
+                    <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- List View -->
+            <div class="services-list" id="servicesList">
+                <div class="service-item" data-category="residential">
+                    <div class="icon"><i class="fas fa-plug" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                    <div>
+                        <h3>Electrical Installation</h3>
+                        <p>Professional installation of electrical systems, wiring, outlets, and fixtures for new constructions and renovations.</p>
+                        <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-item" data-category="residential commercial">
+                    <div class="icon"><i class="fas fa-tools" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                    <div>
+                        <h3>Maintenance & Repair</h3>
+                        <p>Regular maintenance and prompt repair services to keep your electrical systems running safely and efficiently.</p>
+                        <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-item" data-category="emergency">
+                    <div class="icon"><i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                    <div>
+                        <h3>Emergency Services</h3>
+                        <p>24/7 emergency electrical services to handle urgent issues and ensure your safety at any time of day.</p>
+                        <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-bolt"></i> Electrical Services</h5>
+                    <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe electrical services for residential and commercial properties.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="service-details.html">Electrical Installation</a></li>
+                        <li><a href="service-details.html">Maintenance & Repair</a></li>
+                        <li><a href="service-details.html">Emergency Services</a></li>
+                        <li><a href="service-details.html">Smart Home Solutions</a></li>
+                        <li><a href="service-details.html">Commercial Electrical</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to get updates on our latest services and offers.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Electrical Services Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function filterServices(category) {
+            const cards = document.querySelectorAll('.service-card, .service-item');
+            const buttons = document.querySelectorAll('.btn-group button');
+            
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent.includes('All'))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            cards.forEach(card => {
+                const cardCategories = card.getAttribute('data-category');
+                if (category === 'all' || cardCategories.includes(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transparent pricing for electrical services - Residential and commercial electrical solutions">
+    <title>Pricing - Electrical Services Company</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class="fas fa-bolt"></i> Electrical Services</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Home</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">Home 1</a></li>
+                            <li><a class="dropdown-item" href="index-niche.html">Home 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                            <li><a class="dropdown-item" href="service-details.html">Service Details</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><button class="theme-toggle"><i class="fas fa-moon"></i></button></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="contact.html">Get a Free Quote</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="hero-section" style="padding: 80px 0;">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Our Pricing</h1>
+            <p class="lead">Transparent pricing for all your electrical needs</p>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="form-check form-switch d-inline-block">
+                    <input class="form-check-input pricing-toggle" type="checkbox" id="pricingToggle">
+                    <label class="form-check-label" for="pricingToggle">
+                        Yearly Billing (Save 20%)
+                    </label>
+                </div>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h3>Basic Plan</h3>
+                        <div class="price">
+                            <span data-monthly>$99</span>
+                            <span data-yearly style="display:none;">$990</span>
+                            <small>/month</small>
+                        </div>
+                        <p class="text-muted">Perfect for small residential needs</p>
+                        <ul class="list-unstyled my-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Emergency Service</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Basic Repairs</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Phone Support</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Same-day Response</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h3>Professional Plan</h3>
+                        <div class="price">
+                            <span data-monthly>$199</span>
+                            <span data-yearly style="display:none;">$1990</span>
+                            <small>/month</small>
+                        </div>
+                        <p class="text-muted">Best for most homeowners</p>
+                        <ul class="list-unstyled my-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> All Basic Features</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Installation Services</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Priority Support</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Annual Inspection</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 24/7 Emergency</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h3>Enterprise Plan</h3>
+                        <div class="price">
+                            <span data-monthly>$399</span>
+                            <span data-yearly style="display:none;">$3990</span>
+                            <small>/month</small>
+                        </div>
+                        <p class="text-muted">For commercial properties</p>
+                        <ul class="list-unstyled my-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> All Professional Features</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Commercial Services</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 24/7 Dedicated Support</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Custom Solutions</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Quarterly Inspections</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Pricing Table -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service Pricing</h2>
+                <p>Individual service pricing for one-time projects</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><i class="fas fa-plug text-primary me-2"></i>Electrical Installation</h5>
+                            <p class="card-text">Starting at $299</p>
+                            <ul class="list-unstyled service-pricing-list">
+                                <li><i class="fas fa-check text-success me-2"></i> Outlet Installation: $150-$300</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Light Fixture: $100-$400</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Panel Upgrade: $1,200-$3,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><i class="fas fa-tools text-primary me-2"></i>Repair Services</h5>
+                            <p class="card-text">Starting at $99</p>
+                            <ul class="list-unstyled service-pricing-list">
+                                <li><i class="fas fa-check text-success me-2"></i> Basic Repair: $99-$299</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Circuit Repair: $150-$400</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Wiring Repair: $200-$600</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><i class="fas fa-exclamation-triangle text-primary me-2"></i>Emergency Services</h5>
+                            <p class="card-text">$150/hour</p>
+                            <ul class="list-unstyled service-pricing-list">
+                                <li><i class="fas fa-check text-success me-2"></i> 24/7 Availability</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Same-day Response</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Minimum 2-hour charge</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"><i class="fas fa-home text-primary me-2"></i>Smart Home Solutions</h5>
+                            <p class="card-text">Starting at $500</p>
+                            <ul class="list-unstyled service-pricing-list">
+                                <li><i class="fas fa-check text-success me-2"></i> Smart Lighting: $500-$2,000</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Home Automation: $1,500-$5,000</li>
+                                <li><i class="fas fa-check text-success me-2"></i> Security Systems: $800-$3,000</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container text-center">
+            <h2 class="mb-4">Need a Custom Quote?</h2>
+            <p class="lead mb-4">Contact us for personalized pricing based on your specific needs</p>
+            <a href="contact.html" class="btn btn-primary btn-lg">Get Free Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <h5><i class="fas fa-bolt"></i> Electrical Services</h5>
+                    <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe electrical services for residential and commercial properties.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-3"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="service-details.html">Electrical Installation</a></li>
+                        <li><a href="service-details.html">Maintenance & Repair</a></li>
+                        <li><a href="service-details.html">Emergency Services</a></li>
+                        <li><a href="service-details.html">Smart Home Solutions</a></li>
+                        <li><a href="service-details.html">Commercial Electrical</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to get updates on our latest services and offers.</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Electrical Services Company. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
