@@ -119,7 +119,7 @@
     const counters = document.querySelectorAll('.stats-counter .number');
     
     const animateCounter = (counter) => {
-      const target = parseInt(counter.getAttribute('data-target')) || parseInt(counter.textContent);
+      const target = parseInt(counter.getAttribute('data-target')) || parseInt(counter.textContent.replace('+', ''));
       const duration = 2000;
       const increment = target / (duration / 16);
       let current = 0;
@@ -127,10 +127,10 @@
       const updateCounter = () => {
         current += increment;
         if (current < target) {
-          counter.textContent = Math.floor(current);
+          counter.textContent = Math.floor(current) + '+';
           requestAnimationFrame(updateCounter);
         } else {
-          counter.textContent = target;
+          counter.textContent = target + '+';
         }
       };
       
