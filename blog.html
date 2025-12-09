@@ -14,6 +14,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Mobile view - CTA buttons (Category Filter) improvements */
+        @media (max-width: 767px) {
+            .blog-filter-btn {
+                padding: 0.4rem 0.8rem !important;
+                font-size: 0.75rem !important;
+                margin: 0.25rem !important;
+                border-radius: 0.5rem !important;
+                font-weight: 500 !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .blog-filter-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            }
+            
+            .blog-filter-btn.active {
+                font-weight: 600 !important;
+                box-shadow: 0 2px 6px rgba(33, 150, 243, 0.3);
+            }
+            
+            .blog-filter-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+                padding: 0.5rem 0;
+            }
+            
+            .blog-filter-container .blog-filter-btn {
+                flex: 0 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -76,7 +111,7 @@
                     </div>
 
                     <!-- Category Filter -->
-                    <div class="mb-4">
+                    <div class="mb-4 blog-filter-container">
                         <button class="btn btn-outline-primary blog-filter-btn active" data-category="all" onclick="filterBlog('all')">All</button>
                         <button class="btn btn-outline-primary blog-filter-btn" data-category="safety" onclick="filterBlog('safety')">Safety</button>
                         <button class="btn btn-outline-primary blog-filter-btn" data-category="efficiency" onclick="filterBlog('efficiency')">Energy Efficiency</button>

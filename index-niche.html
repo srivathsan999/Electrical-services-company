@@ -60,8 +60,8 @@
             border-bottom: none;
         }
         
-        /* Tablet view pricing format */
-        @media (min-width: 768px) and (max-width: 1024px) {
+        /* Mobile view pricing format */
+        @media (max-width: 767px) {
             .pricing-card .price small {
                 display: none;
             }
@@ -69,6 +69,53 @@
                 content: " /m";
                 font-size: 3rem;
                 font-weight: 700;
+            }
+            
+            /* Mobile view feature comparison improvements */
+            .feature-comparison .feature-row {
+                padding: 1.5rem 1rem;
+                text-align: center;
+            }
+            
+            .feature-comparison .feature-row .row {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-comparison .feature-row > div {
+                width: 100%;
+                padding: 0.75rem 0.5rem;
+                text-align: center;
+            }
+            
+            .feature-comparison .feature-row > div:first-child {
+                font-weight: 600;
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+                border-bottom: 2px solid var(--border-color);
+            }
+            
+            .feature-comparison .feature-row > div:not(:first-child):not(:last-child) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem;
+                min-height: 40px;
+            }
+            
+            .feature-comparison .feature-row > div:last-child {
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid var(--border-color);
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--text-muted);
+            }
+            
+            [data-theme="dark"] .feature-comparison .feature-row > div:last-child {
+                color: var(--text-muted);
             }
         }
     </style>
@@ -86,12 +133,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="homeDropdown" role="button" data-bs-toggle="dropdown">
                             Home
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="index.html">Home 1</a></li>
-                            <li><a class="dropdown-item" href="index-niche.html">Home 2</a></li>
+                            <li><a class="dropdown-item active" href="index-niche.html">Home 2</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>

@@ -144,10 +144,57 @@ img {
   font-weight: 500;
   padding: var(--spacing-sm) var(--spacing-md) !important;
   transition: var(--transition-base);
+  position: relative;
 }
 
 .navbar-nav .nav-link:hover {
   color: var(--primary-color) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(33, 150, 243, 0.1) 100%);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+  transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 2px;
+}
+
+.navbar-nav .nav-link.dropdown-toggle.active {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(33, 150, 243, 0.1) 100%);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.2);
+  transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.dropdown-toggle.active::after {
+  display: none;
+}
+
+.navbar-nav .nav-link.dropdown-toggle.active::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 2px;
 }
 
 .dropdown-menu {
@@ -164,6 +211,17 @@ img {
 .dropdown-item:hover {
   background-color: var(--bg-light);
   color: var(--primary-color);
+}
+
+.dropdown-item.active {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(33, 150, 243, 0.15) 100%);
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  border-left: 3px solid var(--primary-color);
+  padding-left: calc(var(--spacing-md) - 3px);
+  box-shadow: 0 2px 6px rgba(255, 193, 7, 0.15);
+  transform: translateX(2px);
+  transition: var(--transition-base);
 }
 
 /* Theme Toggle */
@@ -853,6 +911,92 @@ img {
   
   .pricing-card.featured {
     transform: scale(1);
+  }
+  
+  /* Mobile view navbar buttons */
+  .navbar-collapse .navbar-nav.ms-auto {
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    align-items: center;
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item {
+    width: 50%;
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item .theme-toggle {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background: var(--bg-color);
+    transition: var(--transition-base);
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item .theme-toggle:hover {
+    background: var(--bg-light);
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item .btn {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+}
+
+/* Tablet view navbar buttons */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-collapse .navbar-nav.ms-auto {
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 0;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    align-items: center;
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item {
+    width: 50%;
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item .theme-toggle {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background: var(--bg-color);
+    transition: var(--transition-base);
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item .theme-toggle:hover {
+    background: var(--bg-light);
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item .btn {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0.75rem 1rem;
+    text-align: center;
   }
 }
 
