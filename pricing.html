@@ -26,6 +26,17 @@
                 font-weight: 700;
             }
         }
+        /* Tablet view pricing format */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .pricing-card .price small {
+                display: none;
+            }
+            .pricing-card .price::after {
+                content: " /m";
+                font-size: 3rem;
+                font-weight: 700;
+            }
+        }
     </style>
 </head>
 <body>

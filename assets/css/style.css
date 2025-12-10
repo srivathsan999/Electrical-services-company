@@ -181,8 +181,23 @@ img {
   transform: translateY(-1px);
 }
 
+/* Ensure Bootstrap's dropdown caret (::after) remains visible for active dropdowns */
 .navbar-nav .nav-link.dropdown-toggle.active::after {
-  display: none;
+  display: inline-block !important;
+  position: static !important;
+  margin-left: 0.255em !important;
+  vertical-align: 0.255em !important;
+  content: "" !important;
+  width: auto !important;
+  height: auto !important;
+  border-top: 0.3em solid !important;
+  border-right: 0.3em solid transparent !important;
+  border-bottom: 0 !important;
+  border-left: 0.3em solid transparent !important;
+  border-top-color: var(--primary-color) !important;
+  background: none !important;
+  transform: none !important;
+  border-radius: 0 !important;
 }
 
 .navbar-nav .nav-link.dropdown-toggle.active::before {
@@ -997,6 +1012,55 @@ img {
     margin: 0 !important;
     padding: 0.75rem 1rem;
     text-align: center;
+  }
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-base);
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.scroll-to-top:active {
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments for scroll-to-top button */
+@media (max-width: 768px) {
+  .scroll-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1rem;
   }
 }
 

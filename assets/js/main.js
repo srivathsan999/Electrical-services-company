@@ -14,6 +14,7 @@
     initCounters();
     initFormValidation();
     initMobileMenu();
+    initScrollToTop();
   });
 
   // Theme Toggle (Dark/Light Mode)
@@ -168,6 +169,29 @@
         }
         form.classList.add('was-validated');
       }, false);
+    });
+  }
+
+  // Scroll to Top Button
+  function initScrollToTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    if (!scrollToTopBtn) return;
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        scrollToTopBtn.classList.add('show');
+      } else {
+        scrollToTopBtn.classList.remove('show');
+      }
+    });
+
+    // Scroll to top when button is clicked
+    scrollToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   }
 
