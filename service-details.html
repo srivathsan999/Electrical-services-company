@@ -76,8 +76,8 @@
     <!-- Page Header -->
     <section class="hero-section" style="padding: 80px 0;">
         <div class="container text-center">
-            <h1 class="display-4 fw-bold mb-3">Electrical Installation Services</h1>
-            <p class="lead">Professional electrical system installation for residential and commercial properties</p>
+            <h1 class="display-4 fw-bold mb-3" id="serviceTitle">Electrical Installation Services</h1>
+            <p class="lead" id="serviceSubtitle">Professional electrical system installation for residential and commercial properties</p>
         </div>
     </section>
 
@@ -87,15 +87,15 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="mb-4">
-                        <div style="height: 400px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem; margin-bottom: 2rem;">
+                        <div id="serviceIcon" style="height: 400px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem; margin-bottom: 2rem;">
                             <i class="fas fa-plug"></i>
                         </div>
-                        <h2 class="text-center">Comprehensive Electrical Installation</h2>
-                        <p class="lead">We provide complete electrical installation services for new constructions, renovations, and upgrades. Our licensed electricians ensure all work meets or exceeds local building codes and safety standards.</p>
+                        <h2 class="text-center" id="serviceHeading">Comprehensive Electrical Installation</h2>
+                        <p id="serviceDescription">We provide complete electrical installation services for new constructions, renovations, and upgrades. Our licensed electricians ensure all work meets or exceeds local building codes and safety standards.</p>
                     </div>
 
                     <h3 class="mb-3 text-center">What We Offer</h3>
-                    <ul class="list-unstyled mb-4">
+                    <ul class="list-unstyled mb-4" id="serviceFeatures">
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Complete electrical wiring for new homes and buildings</li>
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Electrical panel installation and upgrades</li>
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Outlet and switch installation</li>
@@ -106,49 +106,16 @@
                         <li class="mb-2"><i class="fas fa-check text-success me-2"></i> EV charging station installation</li>
                     </ul>
 
-                    <h3 class="mb-3 text-center">Why Choose Our Installation Services</h3>
-                    <p>Our team of experienced electricians brings years of expertise to every installation project. We use only high-quality materials and follow best practices to ensure your electrical system is safe, reliable, and built to last.</p>
-                    <p>We work closely with homeowners, contractors, and architects to ensure installations meet your specific needs and comply with all local codes and regulations.</p>
+                    <h3 class="mb-3 text-center">Why Choose Our Services</h3>
+                    <div id="serviceBenefits">
+                        <p>Our team of experienced electricians brings years of expertise to every installation project. We use only high-quality materials and follow best practices to ensure your electrical system is safe, reliable, and built to last.</p>
+                        <p>We work closely with homeowners, contractors, and architects to ensure installations meet your specific needs and comply with all local codes and regulations.</p>
+                    </div>
 
                     <!-- FAQ Accordion -->
                     <h3 class="mb-3 mt-5 text-center">Frequently Asked Questions</h3>
                     <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                    How long does a complete electrical installation take?
-                                </button>
-                            </h2>
-                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    The timeline depends on the size and complexity of the project. A typical residential installation takes 3-5 days, while commercial projects may take several weeks. We provide detailed timelines during the initial consultation.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                    Do you provide warranties on installations?
-                                </button>
-                            </h2>
-                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Yes, all our installations come with a comprehensive warranty covering both materials and workmanship. We stand behind our work and will address any issues that arise.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                    Will you obtain necessary permits?
-                                </button>
-                            </h2>
-                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Absolutely. We handle all permit applications and ensure all work passes required inspections. This is included in our service to ensure compliance with local regulations.
-                                </div>
-                            </div>
-                        </div>
+                        <!-- FAQ content will be dynamically loaded -->
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -157,10 +124,10 @@
                         <div class="card-body">
                             <h4 class="card-title text-center">Service Pricing</h4>
                             <div class="mb-3">
-                                <h5 class="text-primary">Starting at $299</h5>
-                                <p class="text-muted">Basic installation</p>
+                                <h5 class="text-primary" id="servicePrice">Starting at $299</h5>
+                                <p class="text-muted" id="servicePriceDesc">Basic installation</p>
                             </div>
-                            <ul class="list-unstyled">
+                            <ul class="list-unstyled" id="servicePricing">
                                 <li class="mb-2"><strong>Residential:</strong> $299 - $1,500</li>
                                 <li class="mb-2"><strong>Commercial:</strong> $500 - $5,000+</li>
                                 <li class="mb-2"><strong>Emergency:</strong> $150/hour</li>
@@ -222,11 +189,11 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Services</h5>
                     <ul class="list-unstyled">
-                        <li><a href="service-details.html">Electrical Installation</a></li>
-                        <li><a href="service-details.html">Maintenance & Repair</a></li>
-                        <li><a href="service-details.html">Emergency Services</a></li>
-                        <li><a href="service-details.html">Smart Home Solutions</a></li>
-                        <li><a href="service-details.html">Commercial Electrical</a></li>
+                        <li><a href="service-details.html?service=1">Electrical Installation</a></li>
+                        <li><a href="service-details.html?service=2">Maintenance & Repair</a></li>
+                        <li><a href="service-details.html?service=3">Emergency Services</a></li>
+                        <li><a href="service-details.html?service=4">Smart Home Solutions</a></li>
+                        <li><a href="service-details.html?service=5">Commercial Electrical</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -248,6 +215,248 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+        // Services data
+        const services = {
+            1: {
+                title: "Electrical Installation Services",
+                subtitle: "Professional electrical system installation for residential and commercial properties",
+                heading: "Comprehensive Electrical Installation",
+                description: "We provide complete electrical installation services for new constructions, renovations, and upgrades. Our licensed electricians ensure all work meets or exceeds local building codes and safety standards.",
+                icon: "fas fa-plug",
+                features: [
+                    "Complete electrical wiring for new homes and buildings",
+                    "Electrical panel installation and upgrades",
+                    "Outlet and switch installation",
+                    "Lighting fixture installation",
+                    "Ceiling fan installation",
+                    "GFCI and AFCI outlet installation",
+                    "Dedicated circuits for appliances",
+                    "EV charging station installation"
+                ],
+                benefits: `
+                    <p>Our team of experienced electricians brings years of expertise to every installation project. We use only high-quality materials and follow best practices to ensure your electrical system is safe, reliable, and built to last.</p>
+                    <p>We work closely with homeowners, contractors, and architects to ensure installations meet your specific needs and comply with all local codes and regulations.</p>
+                `,
+                price: "Starting at $299",
+                priceDesc: "Basic installation",
+                pricing: [
+                    "<strong>Residential:</strong> $299 - $1,500",
+                    "<strong>Commercial:</strong> $500 - $5,000+",
+                    "<strong>Emergency:</strong> $150/hour"
+                ],
+                faqs: [
+                    { q: "How long does a complete electrical installation take?", a: "The timeline depends on the size and complexity of the project. A typical residential installation takes 3-5 days, while commercial projects may take several weeks. We provide detailed timelines during the initial consultation." },
+                    { q: "Do you provide warranties on installations?", a: "Yes, all our installations come with a comprehensive warranty covering both materials and workmanship. We stand behind our work and will address any issues that arise." },
+                    { q: "Will you obtain necessary permits?", a: "Absolutely. We handle all permit applications and ensure all work passes required inspections. This is included in our service to ensure compliance with local regulations." }
+                ]
+            },
+            2: {
+                title: "Maintenance & Repair Services",
+                subtitle: "Regular maintenance and prompt repair services to keep your electrical systems running safely and efficiently",
+                heading: "Professional Maintenance & Repair",
+                description: "Keep your electrical systems in top condition with our comprehensive maintenance and repair services. Our skilled technicians diagnose and fix issues quickly, preventing costly breakdowns and ensuring your safety.",
+                icon: "fas fa-tools",
+                features: [
+                    "Electrical system inspections and diagnostics",
+                    "Circuit breaker repair and replacement",
+                    "Outlet and switch repairs",
+                    "Wiring repairs and replacements",
+                    "Lighting fixture repairs",
+                    "Panel maintenance and upgrades",
+                    "GFCI outlet testing and repair",
+                    "Preventive maintenance programs"
+                ],
+                benefits: `
+                    <p>Regular maintenance helps prevent electrical failures and extends the life of your electrical systems. Our preventive maintenance programs are designed to catch issues early, saving you time and money.</p>
+                    <p>When repairs are needed, our experienced technicians respond quickly and efficiently, using quality parts and proven techniques to restore your electrical systems to optimal performance.</p>
+                `,
+                price: "Starting at $99",
+                priceDesc: "Basic repair",
+                pricing: [
+                    "<strong>Diagnostic:</strong> $99 - $149",
+                    "<strong>Repairs:</strong> $150 - $500",
+                    "<strong>Maintenance:</strong> $200 - $800"
+                ],
+                faqs: [
+                    { q: "How often should I have my electrical system inspected?", a: "We recommend annual inspections for residential properties and quarterly inspections for commercial properties. Older homes or properties with frequent issues may need more frequent inspections." },
+                    { q: "What signs indicate I need electrical repairs?", a: "Common signs include flickering lights, frequently tripping breakers, burning smells, warm outlets, and sparking. If you notice any of these, contact us immediately." },
+                    { q: "Do you offer maintenance contracts?", a: "Yes, we offer flexible maintenance contracts that include regular inspections, priority service, and discounts on repairs. Contact us to learn more about our maintenance programs." }
+                ]
+            },
+            3: {
+                title: "Emergency Services",
+                subtitle: "24/7 emergency electrical services to handle urgent issues and ensure your safety at any time of day",
+                heading: "24/7 Emergency Electrical Services",
+                description: "Electrical emergencies can happen at any time. Our team is available 24/7 to respond quickly to urgent electrical issues, ensuring your safety and minimizing damage to your property.",
+                icon: "fas fa-exclamation-triangle",
+                features: [
+                    "24/7 emergency response",
+                    "Power outage diagnosis and repair",
+                    "Electrical fire prevention and safety",
+                    "Circuit breaker emergencies",
+                    "Electrical shock prevention",
+                    "Burning smell investigations",
+                    "Spark and arc fault repairs",
+                    "Storm damage electrical repairs"
+                ],
+                benefits: `
+                    <p>Electrical emergencies require immediate attention to prevent fires, injuries, and property damage. Our emergency response team is trained to handle all types of electrical emergencies safely and efficiently.</p>
+                    <p>We arrive quickly with fully stocked service vehicles, ready to diagnose and resolve your emergency. Your safety is our top priority, and we work to restore power and safety as quickly as possible.</p>
+                `,
+                price: "Starting at $150",
+                priceDesc: "Emergency call-out",
+                pricing: [
+                    "<strong>Emergency Call:</strong> $150/hour",
+                    "<strong>After Hours:</strong> $200/hour",
+                    "<strong>Weekend/Holiday:</strong> $250/hour"
+                ],
+                faqs: [
+                    { q: "What constitutes an electrical emergency?", a: "Any situation that poses immediate danger, such as sparking outlets, burning smells, exposed wires, or complete power loss. If you're unsure, it's better to call us - we're here to help." },
+                    { q: "How quickly can you respond to emergencies?", a: "We typically respond within 1-2 hours, depending on your location and the severity of the emergency. For life-threatening situations, we prioritize immediate response." },
+                    { q: "Do you charge extra for emergency service?", a: "Emergency service includes a call-out fee and hourly rate. While rates are higher than standard service, we believe your safety is worth the investment. We'll always provide transparent pricing before starting work." }
+                ]
+            },
+            4: {
+                title: "Smart Home Solutions",
+                subtitle: "Modern smart home automation including lighting control, security systems, and energy management",
+                heading: "Complete Smart Home Automation",
+                description: "Transform your home with our comprehensive smart home solutions. From intelligent lighting and climate control to security systems and energy management, we bring cutting-edge technology to your fingertips.",
+                icon: "fas fa-home",
+                features: [
+                    "Smart lighting systems and controls",
+                    "Automated climate control",
+                    "Home security integration",
+                    "Voice-activated systems",
+                    "Energy monitoring and management",
+                    "Smart switches and outlets",
+                    "Home automation hubs",
+                    "Mobile app integration"
+                ],
+                benefits: `
+                    <p>Smart home technology offers convenience, energy savings, and enhanced security. Our certified technicians design and install systems tailored to your lifestyle and needs.</p>
+                    <p>We work with leading smart home brands and ensure all systems are properly integrated and easy to use. Our ongoing support ensures your smart home continues to work perfectly.</p>
+                `,
+                price: "Starting at $499",
+                priceDesc: "Basic smart home setup",
+                pricing: [
+                    "<strong>Basic Setup:</strong> $499 - $1,500",
+                    "<strong>Full Home:</strong> $2,000 - $10,000",
+                    "<strong>Custom Solutions:</strong> Quote on request"
+                ],
+                faqs: [
+                    { q: "What smart home systems do you install?", a: "We install and integrate systems from leading brands including Nest, Ring, Philips Hue, Lutron, and more. We can create a custom solution that works with your preferred platforms." },
+                    { q: "Can I control everything from my phone?", a: "Yes! Most modern smart home systems include mobile apps that allow you to control lights, temperature, security, and more from anywhere. We'll set up and configure everything for you." },
+                    { q: "Do smart home systems require special wiring?", a: "Many smart home devices work with your existing wiring, while some advanced systems may require additional wiring. We'll assess your home and provide recommendations during the consultation." }
+                ]
+            },
+            5: {
+                title: "Commercial Electrical Services",
+                subtitle: "Complete electrical solutions for businesses, offices, retail spaces, and industrial facilities",
+                heading: "Professional Commercial Electrical Services",
+                description: "We provide comprehensive electrical services for commercial properties of all sizes. From office buildings to retail stores and industrial facilities, our team ensures your business has reliable, efficient electrical systems.",
+                icon: "fas fa-building",
+                features: [
+                    "Commercial electrical installations",
+                    "Office lighting and power systems",
+                    "Retail space electrical design",
+                    "Industrial electrical solutions",
+                    "Data center power systems",
+                    "Backup power and generators",
+                    "Energy-efficient upgrades",
+                    "Code compliance and inspections"
+                ],
+                benefits: `
+                    <p>Commercial electrical systems require expertise in codes, efficiency, and reliability. Our commercial electricians understand the unique needs of businesses and design systems that support productivity and growth.</p>
+                    <p>We minimize disruption to your operations and work around your schedule. Our commercial services include ongoing maintenance to keep your systems running smoothly and prevent costly downtime.</p>
+                `,
+                price: "Starting at $500",
+                priceDesc: "Commercial service",
+                pricing: [
+                    "<strong>Small Business:</strong> $500 - $2,000",
+                    "<strong>Medium Business:</strong> $2,000 - $10,000",
+                    "<strong>Large/Industrial:</strong> Quote on request"
+                ],
+                faqs: [
+                    { q: "Do you work around business hours?", a: "Yes, we understand that minimizing disruption is important. We can schedule work during off-hours, weekends, or in phases to keep your business running smoothly." },
+                    { q: "Can you help with energy efficiency upgrades?", a: "Absolutely! We specialize in energy-efficient lighting, smart controls, and system upgrades that can significantly reduce your energy costs. Many upgrades pay for themselves through energy savings." },
+                    { q: "Do you handle permits and inspections for commercial work?", a: "Yes, we handle all necessary permits and coordinate with inspectors. We ensure all work meets commercial building codes and regulations." }
+                ]
+            }
+        };
+
+        // Function to get URL parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Load service content
+        document.addEventListener('DOMContentLoaded', function() {
+            const serviceId = parseInt(getUrlParameter('service')) || 1;
+            const service = services[serviceId] || services[1];
+            
+            // Update page title
+            document.title = service.title + ' | Electrical Services Company';
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.content = service.subtitle;
+            }
+            
+            // Update header
+            document.getElementById('serviceTitle').textContent = service.title;
+            document.getElementById('serviceSubtitle').textContent = service.subtitle;
+            
+            // Update icon
+            const iconElement = document.querySelector('#serviceIcon i');
+            if (iconElement) {
+                iconElement.className = service.icon;
+            }
+            
+            // Update content
+            document.getElementById('serviceHeading').textContent = service.heading;
+            document.getElementById('serviceDescription').textContent = service.description;
+            
+            // Update features
+            const featuresList = document.getElementById('serviceFeatures');
+            featuresList.innerHTML = service.features.map(feature => 
+                `<li class="mb-2"><i class="fas fa-check text-success me-2"></i> ${feature}</li>`
+            ).join('');
+            
+            // Update benefits
+            document.getElementById('serviceBenefits').innerHTML = service.benefits;
+            
+            // Update pricing
+            document.getElementById('servicePrice').textContent = service.price;
+            document.getElementById('servicePriceDesc').textContent = service.priceDesc;
+            const pricingList = document.getElementById('servicePricing');
+            pricingList.innerHTML = service.pricing.map(item => 
+                `<li class="mb-2">${item}</li>`
+            ).join('');
+            
+            // Update FAQs
+            const faqAccordion = document.getElementById('faqAccordion');
+            faqAccordion.innerHTML = service.faqs.map((faq, index) => {
+                const isFirst = index === 0;
+                return `
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button ${isFirst ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#faq${index + 1}">
+                                ${faq.q}
+                            </button>
+                        </h2>
+                        <div id="faq${index + 1}" class="accordion-collapse collapse ${isFirst ? 'show' : ''}" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                ${faq.a}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        });
+    </script>
 </body>
 </html>
 

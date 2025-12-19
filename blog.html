@@ -15,6 +15,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
+        /* Blog Card Link Styling */
+        .blog-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: var(--transition-base);
+        }
+        
+        .blog-card-link:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .blog-card-link .blog-card {
+            transition: var(--transition-base);
+            cursor: pointer;
+            height: 100%;
+        }
+        
+        .blog-card-link:hover .blog-card {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .blog-card-link:hover .blog-card h3 {
+            color: var(--primary-color);
+        }
+        
+        .blog-card-link .blog-card h3 {
+            transition: var(--transition-base);
+        }
+        
         /* Mobile view - CTA buttons (Category Filter) improvements */
         @media (max-width: 767px) {
             .blog-filter-btn {
@@ -122,12 +155,13 @@
                     <!-- Blog Posts -->
                     <div class="row g-4">
                         <div class="col-md-6 blog-card" data-category="safety">
+                            <a href="blog-details.html?post=1" class="blog-card-link">
                             <div class="blog-card">
                                 <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&h=600&fit=crop" alt="Electrical Safety Tips" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="blog-card-body">
-                                    <div class="text-center mb-2">
-                                        <span class="badge bg-primary">Electrical Safety</span>
-                                    </div>
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-primary">Electrical Safety</span>
+                                        </div>
                                     <h3>10 Electrical Safety Tips for Your Home</h3>
                                     <p class="text-muted">Essential electrical safety tips every homeowner should know to protect their family and property.</p>
                                     <div class="mt-3">
@@ -135,14 +169,16 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="col-md-6 blog-card" data-category="efficiency">
+                            <a href="blog-details.html?post=2" class="blog-card-link">
                             <div class="blog-card">
                                 <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&h=600&fit=crop" alt="LED Lighting" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="blog-card-body">
-                                    <div class="text-center mb-2">
-                                        <span class="badge bg-primary">Energy Efficiency</span>
-                                    </div>
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-primary">Energy Efficiency</span>
+                                        </div>
                                     <h3>How LED Lighting Can Save You Money</h3>
                                     <p>Discover how switching to LED lighting can significantly reduce your energy bills and carbon footprint.</p>
                                     <div class="mt-3">
@@ -150,14 +186,16 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="col-md-6 blog-card" data-category="smart">
+                            <a href="blog-details.html?post=3" class="blog-card-link">
                             <div class="blog-card">
                                 <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop" alt="Smart Home Technology" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="blog-card-body">
-                                    <div class="text-center mb-2">
-                                        <span class="badge bg-primary">Smart Home</span>
-                                    </div>
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-primary">Smart Home</span>
+                                        </div>
                                     <h3>Smart Home Technology Trends 2024</h3>
                                     <p>Explore the latest trends in smart home technology and how they can enhance your living experience.</p>
                                     <div class="mt-3">
@@ -165,14 +203,16 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="col-md-6 blog-card" data-category="tips">
+                            <a href="blog-details.html?post=4" class="blog-card-link">
                             <div class="blog-card">
                                 <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop" alt="Electrical Panel" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="blog-card-body">
-                                    <div class="text-center mb-2">
-                                        <span class="badge bg-primary">Tips</span>
-                                    </div>
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-primary">Tips</span>
+                                        </div>
                                     <h3>When to Upgrade Your Electrical Panel</h3>
                                     <p>Learn the signs that indicate it's time to upgrade your electrical panel for safety and efficiency.</p>
                                     <div class="mt-3">
@@ -180,14 +220,16 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="col-md-6 blog-card" data-category="safety">
+                            <a href="blog-details.html?post=5" class="blog-card-link">
                             <div class="blog-card">
                                 <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="GFCI Outlets" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="blog-card-body">
-                                    <div class="text-center mb-2">
-                                        <span class="badge bg-primary">Electrical Safety</span>
-                                    </div>
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-primary">Electrical Safety</span>
+                                        </div>
                                     <h3>Understanding GFCI Outlets</h3>
                                     <p>A comprehensive guide to GFCI outlets, why they're important, and where they should be installed.</p>
                                     <div class="mt-3">
@@ -195,14 +237,16 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <div class="col-md-6 blog-card" data-category="efficiency">
+                            <a href="blog-details.html?post=6" class="blog-card-link">
                             <div class="blog-card">
                                 <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop" alt="Energy Efficiency" style="width: 100%; height: 200px; object-fit: cover;">
                                 <div class="blog-card-body">
-                                    <div class="text-center mb-2">
-                                        <span class="badge bg-primary">Energy Efficiency</span>
-                                    </div>
+                                        <div class="text-center mb-2">
+                                            <span class="badge bg-primary">Energy Efficiency</span>
+                                        </div>
                                     <h3>Reducing Your Home's Energy Consumption</h3>
                                     <p>Practical tips and strategies to reduce your home's energy consumption and lower utility bills.</p>
                                     <div class="mt-3">
@@ -210,6 +254,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                     </div>
 
@@ -242,15 +287,15 @@
                             <h5 class="card-title text-center">Recent Posts</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-3">
-                                    <a href="blog-details.html">10 Electrical Safety Tips for Your Home</a>
+                                    <a href="blog-details.html?post=1">10 Electrical Safety Tips for Your Home</a>
                                     <small class="d-block text-muted">March 15, 2024</small>
                                 </li>
                                 <li class="mb-3">
-                                    <a href="blog-details.html">How LED Lighting Can Save You Money</a>
+                                    <a href="blog-details.html?post=2">How LED Lighting Can Save You Money</a>
                                     <small class="d-block text-muted">March 10, 2024</small>
                                 </li>
                                 <li class="mb-3">
-                                    <a href="blog-details.html">Smart Home Technology Trends 2024</a>
+                                    <a href="blog-details.html?post=3">Smart Home Technology Trends 2024</a>
                                     <small class="d-block text-muted">March 5, 2024</small>
                                 </li>
                             </ul>
@@ -300,11 +345,11 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Services</h5>
                     <ul class="list-unstyled">
-                        <li><a href="service-details.html">Electrical Installation</a></li>
-                        <li><a href="service-details.html">Maintenance & Repair</a></li>
-                        <li><a href="service-details.html">Emergency Services</a></li>
-                        <li><a href="service-details.html">Smart Home Solutions</a></li>
-                        <li><a href="service-details.html">Commercial Electrical</a></li>
+                        <li><a href="service-details.html?service=1">Electrical Installation</a></li>
+                        <li><a href="service-details.html?service=2">Maintenance & Repair</a></li>
+                        <li><a href="service-details.html?service=3">Emergency Services</a></li>
+                        <li><a href="service-details.html?service=4">Smart Home Solutions</a></li>
+                        <li><a href="service-details.html?service=5">Commercial Electrical</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
