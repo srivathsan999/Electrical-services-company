@@ -852,6 +852,101 @@ img {
   padding: var(--spacing-lg);
 }
 
+/* Tablet view - Blog page card height alignment (768px-1024px) - FORCED FIX */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* FORCE row to CSS Grid for equal heights - target blog page specifically */
+  .col-lg-8 .row.g-4 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+    align-items: stretch !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Remove Bootstrap column classes behavior completely */
+  .col-lg-8 .row.g-4 > [class*="col-md-6"] {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* FORCE blog card link to fill column height completely */
+  .col-lg-8 .row.g-4 [class*="col-md-6"] > a.blog-card-link {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 100% !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* FORCE blog card to fill link height completely */
+  .col-lg-8 a.blog-card-link > div.blog-card {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+  
+  /* FORCE card body to use flex and grow to fill space */
+  .col-lg-8 div.blog-card > div.blog-card-body {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 1 auto !important;
+    flex-grow: 1 !important;
+  }
+  
+  /* FORCE paragraph to grow and fill available space */
+  .col-lg-8 .blog-card-body > p {
+    flex-grow: 1 !important;
+    margin-bottom: 0 !important;
+  }
+  
+  /* Specific fix for "Understanding GFCI Outlets" card - align paragraph with other card */
+  .col-lg-8 .row.g-4 > [class*="col-md-6"]:nth-child(5) .blog-card-body h3 {
+    min-height: 4.5rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: var(--spacing-md) !important;
+  }
+  
+  /* Push paragraph down to align with other card */
+  .col-lg-8 .row.g-4 > [class*="col-md-6"]:nth-child(5) .blog-card-body > p {
+    margin-top: 1.5rem !important;
+  }
+  
+  /* Specific fix for "When to Upgrade Your Electrical Panel" card - align paragraph with Smart Home card */
+  .col-lg-8 .row.g-4 > [class*="col-md-6"]:nth-child(4) .blog-card-body h3 {
+    min-height: 4.5rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: var(--spacing-md) !important;
+  }
+  
+  /* Push paragraph down to align with Smart Home card */
+  .col-lg-8 .row.g-4 > [class*="col-md-6"]:nth-child(4) .blog-card-body > p {
+    margin-top: 0.75rem !important;
+  }
+  
+  /* FORCE button to stay at bottom */
+  .col-lg-8 .blog-card-body > .read-more-btn {
+    margin-top: auto !important;
+    align-self: flex-start !important;
+    flex-shrink: 0 !important;
+  }
+  
+  /* Ensure images have fixed height */
+  .col-lg-8 .blog-card img {
+    height: 200px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+  }
+}
+
 /* Admin Dashboard Styles */
 .admin-sidebar {
   background-color: var(--bg-light);
