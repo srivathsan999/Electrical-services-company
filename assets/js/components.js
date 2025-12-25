@@ -7,7 +7,7 @@ const navbarHTML = `
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="index.html">
-      <i class="fas fa-bolt"></i> Electrical Services
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC107' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -57,9 +57,6 @@ const navbarHTML = `
         <li class="nav-item">
           <a class="nav-link" href="register.html">Register</a>
         </li>
-        <li class="nav-item">
-          <a class="btn btn-primary" href="contact.html">Get a Free Quote</a>
-        </li>
       </ul>
     </div>
   </div>
@@ -72,7 +69,7 @@ const footerHTML = `
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-6 mb-4">
-        <h5><i class="fas fa-bolt"></i> Electrical Services</h5>
+        <h5><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC107' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services</h5>
         <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe electrical services for residential and commercial properties.</p>
         <div class="social-links mt-3">
           <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>

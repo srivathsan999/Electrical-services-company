@@ -137,6 +137,40 @@ img {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--primary-color) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.footer h5 img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.footer h5 {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+
+.navbar-nav .nav-item {
+  margin: 0;
 }
 
 .navbar-nav .nav-link {
@@ -145,6 +179,7 @@ img {
   padding: var(--spacing-sm) var(--spacing-md) !important;
   transition: var(--transition-base);
   position: relative;
+  white-space: nowrap;
 }
 
 .navbar-nav .nav-link:hover {
@@ -210,6 +245,45 @@ img {
   height: 3px;
   background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   border-radius: 2px;
+}
+
+/* Ensure navbar items stay in single line with proper spacing */
+@media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto !important;
+    flex-grow: 1 !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar-nav.me-auto {
+    margin-right: auto !important;
+    display: flex !important;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
+  }
+
+  .navbar-nav.ms-auto {
+    margin-left: auto !important;
+    display: flex !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 0 !important;
+  }
+  
+  /* Override Bootstrap margin utilities when using gap */
+  .navbar-nav.ms-auto .nav-item.me-3 {
+    margin-right: 0 !important;
+  }
+  
+  .navbar-nav.ms-auto .nav-item .btn.me-2 {
+    margin-right: 0 !important;
+  }
 }
 
 .dropdown-menu {
@@ -1024,20 +1098,45 @@ img {
   }
   
   /* Mobile view navbar buttons */
+  .navbar-collapse {
+    flex-direction: column !important;
+  }
+  
+  .navbar-collapse .navbar-nav {
+    flex-direction: column !important;
+    width: 100%;
+    align-items: stretch !important;
+  }
+  
+  .navbar-collapse .navbar-nav.me-auto {
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+  }
+  
   .navbar-collapse .navbar-nav.ms-auto {
     flex-direction: column;
     width: 100%;
     padding: 1rem 0;
     gap: 0.75rem;
     margin-top: 1rem;
+    margin-left: 0 !important;
     align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar-collapse .navbar-nav .nav-item {
+    margin: 0 !important;
   }
   
   .navbar-collapse .navbar-nav.ms-auto .nav-item {
-    width: 50%;
-    margin: 0 !important;
+    margin: 0 auto !important;
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item:not(:first-child) {
+    width: 50%;
   }
   
   .navbar-collapse .navbar-nav.ms-auto .nav-item .theme-toggle {
@@ -1068,20 +1167,42 @@ img {
 
 /* Tablet view navbar buttons */
 @media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-collapse {
+    flex-direction: column !important;
+  }
+  
+  .navbar-collapse .navbar-nav {
+    flex-direction: column !important;
+    width: 100%;
+    align-items: stretch !important;
+  }
+  
+  .navbar-collapse .navbar-nav.me-auto {
+    margin-right: 0 !important;
+    margin-bottom: 1rem;
+    gap: 0.5rem;
+  }
+  
   .navbar-collapse .navbar-nav.ms-auto {
     flex-direction: column;
     width: 100%;
     padding: 1rem 0;
     gap: 0.75rem;
     margin-top: 1rem;
+    margin-left: 0 !important;
     align-items: center;
+    justify-content: center;
   }
   
   .navbar-collapse .navbar-nav.ms-auto .nav-item {
-    width: 50%;
-    margin: 0 !important;
+    margin: 0 auto !important;
     display: flex;
     justify-content: center;
+    align-items: center;
+  }
+  
+  .navbar-collapse .navbar-nav.ms-auto .nav-item:not(:first-child) {
+    width: 50%;
   }
   
   .navbar-collapse .navbar-nav.ms-auto .nav-item .theme-toggle {

@@ -3,304 +3,903 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Electrical Services Company</title>
+    <title>Dashboard Overview - Electrical Services Company</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC107' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E">
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC107' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" type="image/svg+xml">
+    
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         body {
-            background-color: var(--bg-light);
+            background-color: #f5f7fa;
+            font-family: 'Inter', sans-serif;
         }
-        .admin-sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100vh;
-            width: 250px;
-            background-color: var(--bg-color);
-            border-right: 1px solid var(--border-color);
-            padding: 1.5rem;
-            overflow-y: auto;
-        }
-        .admin-content {
-            margin-left: 250px;
+        
+        .dashboard-container {
+            min-height: 100vh;
             padding: 2rem;
         }
-        .admin-header {
-            background-color: var(--bg-color);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border-color);
+        
+        /* Header Styles */
+        .dashboard-header {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #FFC107;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logout-btn {
+            background: #2196F3;
+            border: 1px solid #2196F3;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logout-btn:hover {
+            background: #1976D2;
+            border-color: #1976D2;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logout-btn i {
+            font-size: 1rem;
+        }
+        
+        .stat-card {
+            cursor: pointer;
+        }
+        
+        /* Dashboard Overview Section */
+        .dashboard-overview-section {
+            text-align: center;
+        }
+        
+        .dashboard-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dashboard-subtitle {
+            color: #718096;
+            font-size: 1rem;
             margin-bottom: 2rem;
         }
+        
+        /* Stat Cards */
         .stat-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
         }
-        .stat-card .icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .stat-card.blue::before { background: linear-gradient(90deg, #4299e1, #3182ce); }
+        .stat-card.green::before { background: linear-gradient(90deg, #48bb78, #38a169); }
+        .stat-card.purple::before { background: linear-gradient(90deg, #9f7aea, #805ad5); }
+        .stat-card.orange::before { background: linear-gradient(90deg, #ed8936, #dd6b20); }
+        
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-card.blue .stat-icon { background: linear-gradient(135deg, #4299e1, #3182ce); }
+        .stat-card.green .stat-icon { background: linear-gradient(135deg, #48bb78, #38a169); }
+        .stat-card.purple .stat-icon { background: linear-gradient(135deg, #9f7aea, #805ad5); }
+        .stat-card.orange .stat-icon { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #718096;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-change {
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .stat-change.positive {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .stat-change.negative {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+        
+        /* Chart Cards */
+        .chart-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        .chart-dropdown {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            color: #4a5568;
+            cursor: pointer;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+        
+        /* Recent Projects Table */
+        .projects-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .projects-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        .view-all-link {
+            color: #4299e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .view-all-link:hover {
+            text-decoration: underline;
+        }
+        
+        .projects-table {
+            width: 100%;
+        }
+        
+        .projects-table th {
+            font-weight: 600;
+            color: #718096;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            padding: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .projects-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .status-badge {
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .status-active {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .progress-bar-custom {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4299e1, #3182ce);
+            border-radius: 4px;
+        }
+        
+        /* System Activity */
+        .activity-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .activity-icon.success {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+        
+        .activity-icon.info {
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+        }
+        
+        .activity-content h6 {
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.25rem;
+        }
+        
+        .activity-content p {
+            font-size: 0.875rem;
+            color: #718096;
+            margin: 0;
+        }
+        
         @media (max-width: 768px) {
-            .admin-sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s;
+            .dashboard-container {
+                padding: 1rem;
             }
-            .admin-sidebar.show {
-                transform: translateX(0);
+            
+            .dashboard-header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
             }
-            .admin-content {
-                margin-left: 0;
+            
+            .logout-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .stat-value {
+                font-size: 1.5rem;
+            }
+            
+            .chart-container {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="admin-sidebar">
-        <div class="mb-4">
-            <h4><i class="fas fa-bolt text-primary"></i> Admin Panel</h4>
-        </div>
-        <nav class="nav flex-column">
-            <a class="nav-link active" href="dashboard.html">
-                <i class="fas fa-home me-2"></i>Dashboard
-            </a>
-            <a class="nav-link" href="users.html">
-                <i class="fas fa-users me-2"></i>Users
-            </a>
-            <a class="nav-link" href="orders.html">
-                <i class="fas fa-shopping-cart me-2"></i>Orders
-            </a>
-            <a class="nav-link" href="messages.html">
-                <i class="fas fa-envelope me-2"></i>Messages
-            </a>
-            <hr>
-            <a class="nav-link" href="../index.html">
-                <i class="fas fa-globe me-2"></i>View Website
-            </a>
-            <a class="nav-link" href="login.html">
-                <i class="fas fa-sign-out-alt me-2"></i>Logout
-            </a>
-        </nav>
-        <div class="mt-4">
-            <button class="theme-toggle btn btn-sm btn-outline-primary w-100">
-                <i class="fas fa-moon"></i> Toggle Theme
-            </button>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="admin-content">
-        <!-- Header -->
-        <div class="admin-header d-flex justify-content-between align-items-center">
-            <div>
-                <button class="btn btn-outline-primary d-md-none" onclick="toggleSidebar()">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <h4 class="d-inline ms-2">Dashboard Overview</h4>
-            </div>
-            <div class="d-flex align-items-center gap-3">
-                <button class="theme-toggle btn btn-sm btn-outline-primary">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <div class="dropdown">
-                    <button class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fas fa-user me-2"></i>Admin User
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                    </ul>
+    <!-- Dashboard -->
+    <div class="dashboard-container">
+        <!-- Dashboard Header -->
+        <div class="dashboard-header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC107' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo">
                 </div>
+                <span>Electrical Services</span>
             </div>
+            <div class="header-actions">
+                <a href="#" id="logoutLink" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Dashboard Overview -->
+        <div class="mb-4 dashboard-overview-section">
+            <h1 class="dashboard-title">Dashboard Overview</h1>
+            <p class="dashboard-subtitle">Welcome back! Here's what's happening with your analytics platform.</p>
         </div>
 
         <!-- Stats Cards -->
         <div class="row g-4 mb-4">
             <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted mb-2">Total Revenue</h6>
-                            <h3 class="mb-0">$125,450</h3>
-                            <small class="text-success"><i class="fas fa-arrow-up"></i> 12% from last month</small>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
+                <div class="stat-card blue">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
                     </div>
+                    <div class="stat-label">Total Users</div>
+                    <div class="stat-value">2,847</div>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> +12%
+                    </span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted mb-2">Total Orders</h6>
-                            <h3 class="mb-0">1,234</h3>
-                            <small class="text-success"><i class="fas fa-arrow-up"></i> 8% from last month</small>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
+                <div class="stat-card green">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
                     </div>
+                    <div class="stat-label">Active Projects</div>
+                    <div class="stat-value">156</div>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> +8%
+                    </span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted mb-2">New Leads</h6>
-                            <h3 class="mb-0">456</h3>
-                            <small class="text-success"><i class="fas fa-arrow-up"></i> 15% from last month</small>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-users"></i>
-                        </div>
+                <div class="stat-card purple">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
                     </div>
+                    <div class="stat-label">Revenue</div>
+                    <div class="stat-value">$2.4M</div>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> +24%
+                    </span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div>
-                            <h6 class="text-muted mb-2">Website Traffic</h6>
-                            <h3 class="mb-0">12,345</h3>
-                            <small class="text-success"><i class="fas fa-arrow-up"></i> 5% from last month</small>
-                        </div>
-                        <div class="icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
+                <div class="stat-card orange">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <div class="stat-label">System Uptime</div>
+                    <div class="stat-value">98.2%</div>
+                    <span class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> +5%
+                    </span>
                 </div>
             </div>
         </div>
 
         <!-- Charts Row -->
         <div class="row g-4 mb-4">
+            <!-- Revenue Trend Chart -->
             <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Revenue Chart</h5>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">Revenue Trend</h3>
+                        <select class="chart-dropdown" id="revenueDropdown">
+                            <option value="7">Last 7 days</option>
+                            <option value="30">Last 30 days</option>
+                            <option value="90">Last 90 days</option>
+                        </select>
                     </div>
-                    <div class="card-body">
-                        <div style="height: 300px; background: #f8f9fa; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
-                            <div class="text-center text-muted">
-                                <i class="fas fa-chart-area" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                                <p>Chart Integration Area<br><small>Integrate Chart.js or similar library here</small></p>
-                            </div>
-                        </div>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
                     </div>
                 </div>
             </div>
+            
+            <!-- User Growth Chart -->
             <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Recent Activity</h5>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3 class="chart-title">User Growth</h3>
+                        <select class="chart-dropdown" id="userGrowthDropdown">
+                            <option value="7">Last 7 days</option>
+                            <option value="30">Last 30 days</option>
+                            <option value="90">Last 90 days</option>
+                        </select>
                     </div>
-                    <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li class="mb-3 pb-3 border-bottom">
-                                <div class="d-flex">
-                                    <div style="width: 40px; height: 40px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <div>
-                                        <strong>New user registered</strong>
-                                        <p class="mb-0 text-muted small">2 minutes ago</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="mb-3 pb-3 border-bottom">
-                                <div class="d-flex">
-                                    <div style="width: 40px; height: 40px; background: var(--secondary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
-                                        <i class="fas fa-shopping-cart"></i>
-                                    </div>
-                                    <div>
-                                        <strong>New order received</strong>
-                                        <p class="mb-0 text-muted small">15 minutes ago</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="mb-3 pb-3 border-bottom">
-                                <div class="d-flex">
-                                    <div style="width: 40px; height: 40px; background: var(--success-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; margin-right: 1rem;">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div>
-                                        <strong>New message received</strong>
-                                        <p class="mb-0 text-muted small">1 hour ago</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="chart-container">
+                        <canvas id="userGrowthChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Recent Orders -->
-        <div class="card">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Recent Orders</h5>
-                <a href="orders.html" class="btn btn-sm btn-primary">View All</a>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover">
+        <!-- Recent Projects and System Activity -->
+        <div class="row g-4">
+            <!-- Recent Projects -->
+            <div class="col-lg-8">
+                <div class="projects-card">
+                    <div class="projects-header">
+                        <h3 class="projects-title">Recent Projects</h3>
+                        <a href="#" class="view-all-link" id="viewAllProjects">View All</a>
+                    </div>
+                    <table class="projects-table">
                         <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th>Customer</th>
-                                <th>Service</th>
-                                <th>Amount</th>
+                                <th>Project</th>
                                 <th>Status</th>
-                                <th>Date</th>
+                                <th>Progress</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>#1234</td>
-                                <td>John Smith</td>
-                                <td>Electrical Installation</td>
-                                <td>$299</td>
-                                <td><span class="badge bg-success">Completed</span></td>
-                                <td>2024-03-15</td>
+                            <tr class="project-row" data-project="Retail Analytics">
+                                <td><strong>Retail Analytics</strong></td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="progress-bar-custom">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>#1235</td>
-                                <td>Maria Johnson</td>
-                                <td>Maintenance & Repair</td>
-                                <td>$199</td>
-                                <td><span class="badge bg-warning">In Progress</span></td>
-                                <td>2024-03-15</td>
+                            <tr class="project-row" data-project="E-commerce Dashboard">
+                                <td><strong>E-commerce Dashboard</strong></td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="progress-bar-custom">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                </td>
                             </tr>
-                            <tr>
-                                <td>#1236</td>
-                                <td>Robert Williams</td>
-                                <td>Emergency Service</td>
-                                <td>$350</td>
-                                <td><span class="badge bg-info">Pending</span></td>
-                                <td>2024-03-14</td>
+                            <tr class="project-row" data-project="Financial Report">
+                                <td><strong>Financial Report</strong></td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <div class="progress-bar-custom">
+                                        <div class="progress-fill" style="width: 90%"></div>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            
+            <!-- System Activity -->
+            <div class="col-lg-4">
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h3 class="activity-title">System Activity</h3>
+                        <a href="#" class="view-all-link" id="viewLogs">View Logs</a>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h6>Data pipeline completed</h6>
+                                <p>Retail Analytics project - 2 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon info">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h6>New user registered</h6>
+                                <p>John Doe joined the platform - 15 minutes ago</p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon success">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h6>Report generated</h6>
+                                <p>Monthly revenue report - 1 hour ago</p>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon info">
+                                <i class="fas fa-sync"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h6>System backup completed</h6>
+                                <p>Daily backup successful - 2 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
     <script src="../assets/js/main.js"></script>
     <script>
-        function toggleSidebar() {
-            document.querySelector('.admin-sidebar').classList.toggle('show');
+        // Global chart variables
+        let revenueChart;
+        let userGrowthChart;
+        
+        // Chart data configurations
+        const revenueData = {
+            7: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                data: [450, 475, 500, 525, 550, 575, 600],
+                min: 400,
+                max: 650
+            },
+            30: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                data: [4200, 4500, 4800, 5200],
+                min: 4000,
+                max: 5500
+            },
+            90: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                data: [475, 500, 475, 625, 575, 650, 720],
+                min: 450,
+                max: 750
+            }
+        };
+        
+        const userGrowthData = {
+            7: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                data: [25, 30, 28, 35, 32, 40, 38],
+                max: 50
+            },
+            30: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                data: [120, 140, 160, 180],
+                max: 200
+            },
+            90: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                data: [120, 190, 150, 220, 200, 240, 280],
+                max: 300
+            }
+        };
+        
+        // Initialize Charts
+        function initCharts() {
+            // Revenue Trend Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            const defaultRevenueData = revenueData[90];
+            revenueChart = new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: defaultRevenueData.labels,
+                    datasets: [{
+                        label: 'Revenue',
+                        data: defaultRevenueData.data,
+                        borderColor: '#4299e1',
+                        backgroundColor: 'rgba(66, 153, 225, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#4299e1',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: defaultRevenueData.min,
+                            max: defaultRevenueData.max,
+                            ticks: {
+                                stepSize: (defaultRevenueData.max - defaultRevenueData.min) / 6,
+                                callback: function(value) {
+                                    return '$' + value + (defaultRevenueData.max > 1000 ? '' : 'K');
+                                }
+                            },
+                            grid: {
+                                color: '#e2e8f0'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+
+            // User Growth Chart
+            const userGrowthCtx = document.getElementById('userGrowthChart').getContext('2d');
+            const defaultUserGrowthData = userGrowthData[90];
+            userGrowthChart = new Chart(userGrowthCtx, {
+                type: 'bar',
+                data: {
+                    labels: defaultUserGrowthData.labels,
+                    datasets: [{
+                        label: 'Users',
+                        data: defaultUserGrowthData.data,
+                        backgroundColor: defaultUserGrowthData.data.map(() => 'rgba(66, 153, 225, 0.8)'),
+                        borderRadius: 8,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: defaultUserGrowthData.max,
+                            ticks: {
+                                stepSize: defaultUserGrowthData.max / 6
+                            },
+                            grid: {
+                                color: '#e2e8f0'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
         }
+        
+        // Update Revenue Chart
+        function updateRevenueChart(days) {
+            const data = revenueData[days];
+            revenueChart.data.labels = data.labels;
+            revenueChart.data.datasets[0].data = data.data;
+            revenueChart.options.scales.y.min = data.min;
+            revenueChart.options.scales.y.max = data.max;
+            revenueChart.options.scales.y.ticks.stepSize = (data.max - data.min) / 6;
+            revenueChart.options.scales.y.ticks.callback = function(value) {
+                return '$' + value + (data.max > 1000 ? '' : 'K');
+            };
+            revenueChart.update();
+        }
+        
+        // Update User Growth Chart
+        function updateUserGrowthChart(days) {
+            const data = userGrowthData[days];
+            userGrowthChart.data.labels = data.labels;
+            userGrowthChart.data.datasets[0].data = data.data;
+            userGrowthChart.data.datasets[0].backgroundColor = data.data.map(() => 'rgba(66, 153, 225, 0.8)');
+            userGrowthChart.options.scales.y.max = data.max;
+            userGrowthChart.options.scales.y.ticks.stepSize = data.max / 6;
+            userGrowthChart.update();
+        }
+        
+            // Initialize dashboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize charts
+            initCharts();
+            
+            // Notifications button functionality
+            const notificationsBtn = document.getElementById('notificationsBtn');
+            const notificationsDropdown = document.getElementById('notificationsDropdown');
+            
+            if (notificationsBtn && notificationsDropdown) {
+                notificationsBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    notificationsDropdown.classList.toggle('show');
+                });
+                
+                // Close notifications when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!notificationsBtn.contains(e.target) && !notificationsDropdown.contains(e.target)) {
+                        notificationsDropdown.classList.remove('show');
+                    }
+                });
+                
+                // Handle notification item clicks
+                document.querySelectorAll('.notification-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const title = this.querySelector('h6').textContent;
+                        alert('Notification: ' + title);
+                        notificationsDropdown.classList.remove('show');
+                    });
+                });
+            }
+            
+            // Logout functionality
+            const logoutLink = document.getElementById('logoutLink');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (confirm('Are you sure you want to logout?')) {
+                        window.location.href = '../index.html';
+                    }
+                });
+            }
+            
+            // Chart dropdown functionality
+            const revenueDropdown = document.getElementById('revenueDropdown');
+            if (revenueDropdown) {
+                revenueDropdown.addEventListener('change', function() {
+                    updateRevenueChart(parseInt(this.value));
+                });
+            }
+            
+            const userGrowthDropdown = document.getElementById('userGrowthDropdown');
+            if (userGrowthDropdown) {
+                userGrowthDropdown.addEventListener('change', function() {
+                    updateUserGrowthChart(parseInt(this.value));
+                });
+            }
+            
+            // Stat card click functionality
+            document.querySelectorAll('.stat-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const label = this.querySelector('.stat-label').textContent;
+                    const value = this.querySelector('.stat-value').textContent;
+                    alert(`${label}: ${value}\n\nClick OK to view detailed statistics.`);
+                });
+            });
+            
+            // Project row click functionality
+            document.querySelectorAll('.project-row').forEach(row => {
+                row.style.cursor = 'pointer';
+                row.addEventListener('click', function() {
+                    const projectName = this.getAttribute('data-project');
+                    const status = this.querySelector('.status-badge').textContent;
+                    const progress = this.querySelector('.progress-fill').style.width;
+                    alert(`Project: ${projectName}\nStatus: ${status}\nProgress: ${progress}\n\nClick OK to view project details.`);
+                });
+            });
+            
+            // View All Projects link
+            const viewAllProjects = document.getElementById('viewAllProjects');
+            if (viewAllProjects) {
+                viewAllProjects.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Loading all projects...\n\nThis would typically navigate to a projects page or show a modal with all projects.');
+                });
+            }
+            
+            // View Logs link
+            const viewLogs = document.getElementById('viewLogs');
+            if (viewLogs) {
+                viewLogs.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Loading system logs...\n\nThis would typically navigate to a logs page or show a modal with detailed activity logs.');
+                });
+            }
+            
+            // Activity item click functionality
+            document.querySelectorAll('.activity-item').forEach(item => {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', function() {
+                    const title = this.querySelector('h6').textContent;
+                    const description = this.querySelector('p').textContent;
+                    alert(`Activity: ${title}\n${description}\n\nClick OK to view details.`);
+                });
+            });
+        });
     </script>
 </body>
 </html>
-
