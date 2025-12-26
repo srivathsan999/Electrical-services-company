@@ -21,8 +21,9 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
         body {
-            background-color: #f5f7fa;
+            background-color: var(--bg-light, #f5f7fa);
             font-family: 'Inter', sans-serif;
+            transition: var(--transition-base);
         }
         
         .dashboard-container {
@@ -32,7 +33,7 @@
         
         /* Header Styles */
         .dashboard-header {
-            background: #ffffff;
+            background: var(--bg-color, #ffffff);
             border-radius: 12px;
             padding: 1.5rem 2rem;
             margin-bottom: 2rem;
@@ -40,7 +41,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--border-color, #e2e8f0);
+            transition: var(--transition-base);
         }
         
         .logo-section {
@@ -114,19 +116,19 @@
         .dashboard-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #1a202c;
+            color: var(--text-color, #1a202c);
             margin-bottom: 0.5rem;
         }
         
         .dashboard-subtitle {
-            color: #718096;
+            color: var(--text-muted, #718096);
             font-size: 1rem;
             margin-bottom: 2rem;
         }
         
         /* Stat Cards */
         .stat-card {
-            background: white;
+            background: var(--bg-color, white);
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -134,6 +136,7 @@
             height: 100%;
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-color, transparent);
         }
         
         .stat-card:hover {
@@ -174,7 +177,7 @@
         
         .stat-label {
             font-size: 0.875rem;
-            color: #718096;
+            color: var(--text-muted, #718096);
             font-weight: 500;
             margin-bottom: 0.5rem;
         }
@@ -182,7 +185,7 @@
         .stat-value {
             font-size: 2rem;
             font-weight: 700;
-            color: #1a202c;
+            color: var(--text-color, #1a202c);
             margin-bottom: 0.5rem;
         }
         
@@ -206,11 +209,12 @@
         
         /* Chart Cards */
         .chart-card {
-            background: white;
+            background: var(--bg-color, white);
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             height: 100%;
+            border: 1px solid var(--border-color, transparent);
         }
         
         .chart-header {
@@ -223,16 +227,16 @@
         .chart-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #1a202c;
+            color: var(--text-color, #1a202c);
         }
         
         .chart-dropdown {
-            background: #f7fafc;
-            border: 1px solid #e2e8f0;
+            background: var(--bg-light, #f7fafc);
+            border: 1px solid var(--border-color, #e2e8f0);
             border-radius: 8px;
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
-            color: #4a5568;
+            color: var(--text-color, #4a5568);
             cursor: pointer;
         }
         
@@ -243,10 +247,62 @@
         
         /* Recent Projects Table */
         .projects-card {
-            background: white;
+            background: var(--bg-color, white);
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color, transparent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .projects-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+        
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color, #4299e1);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            opacity: 0.9;
+        }
+        
+        .scroll-btn:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            background: var(--secondary-color, #3182ce);
+        }
+        
+        .scroll-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        .scroll-btn-left {
+            left: 10px;
+        }
+        
+        .scroll-btn-right {
+            right: 10px;
+        }
+        
+        .scroll-btn.hidden {
+            display: none !important;
         }
         
         .projects-header {
@@ -259,7 +315,7 @@
         .projects-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #1a202c;
+            color: var(--text-color, #1a202c);
         }
         
         .view-all-link {
@@ -275,20 +331,33 @@
         
         .projects-table {
             width: 100%;
+            min-width: 500px;
         }
         
         .projects-table th {
             font-weight: 600;
-            color: #718096;
+            color: var(--text-muted, #718096);
             font-size: 0.875rem;
             text-transform: uppercase;
             padding: 1rem;
-            border-bottom: 2px solid #e2e8f0;
+            border-bottom: 2px solid var(--border-color, #e2e8f0);
+            white-space: nowrap;
         }
         
         .projects-table td {
             padding: 1rem;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--border-color, #e2e8f0);
+            color: var(--text-color, inherit);
+            white-space: nowrap;
+        }
+        
+        .projects-table td strong {
+            color: var(--text-color, inherit);
+        }
+        
+        .projects-table td:first-child {
+            white-space: normal;
+            min-width: 150px;
         }
         
         .status-badge {
@@ -305,7 +374,7 @@
         
         .progress-bar-custom {
             height: 8px;
-            background: #e2e8f0;
+            background: var(--border-color, #e2e8f0);
             border-radius: 4px;
             overflow: hidden;
         }
@@ -318,10 +387,11 @@
         
         /* System Activity */
         .activity-card {
-            background: white;
+            background: var(--bg-color, white);
             border-radius: 12px;
             padding: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color, transparent);
         }
         
         .activity-header {
@@ -334,7 +404,7 @@
         .activity-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #1a202c;
+            color: var(--text-color, #1a202c);
         }
         
         .activity-item {
@@ -342,7 +412,7 @@
             align-items: flex-start;
             gap: 1rem;
             padding: 1rem 0;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--border-color, #e2e8f0);
         }
         
         .activity-item:last-child {
@@ -371,14 +441,37 @@
         
         .activity-content h6 {
             font-weight: 600;
-            color: #1a202c;
+            color: var(--text-color, #1a202c);
             margin-bottom: 0.25rem;
         }
         
         .activity-content p {
             font-size: 0.875rem;
-            color: #718096;
+            color: var(--text-muted, #718096);
             margin: 0;
+        }
+        
+        /* Dark theme chart adjustments */
+        [data-theme="dark"] .chart-dropdown {
+            background-color: var(--bg-light) !important;
+            color: var(--text-color) !important;
+        }
+        
+        [data-theme="dark"] .chart-dropdown option {
+            background-color: var(--bg-light) !important;
+            color: var(--text-color) !important;
+        }
+        
+        [data-theme="dark"] .projects-table {
+            color: var(--text-color) !important;
+        }
+        
+        [data-theme="dark"] .view-all-link {
+            color: var(--primary-color) !important;
+        }
+        
+        [data-theme="dark"] .view-all-link:hover {
+            color: var(--secondary-color) !important;
         }
         
         @media (max-width: 768px) {
@@ -403,6 +496,66 @@
             
             .chart-container {
                 height: 250px;
+            }
+            
+            .projects-card {
+                padding: 1rem;
+            }
+            
+            .projects-table-wrapper {
+                padding: 0 50px;
+                overflow-x: hidden;
+            }
+            
+            .scroll-btn {
+                display: flex !important;
+            }
+            
+            .scroll-btn.hidden {
+                display: none !important;
+            }
+            
+            .projects-header {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .projects-title {
+                font-size: 1.1rem;
+            }
+            
+            .projects-table {
+                font-size: 0.875rem;
+            }
+            
+            .projects-table th,
+            .projects-table td {
+                padding: 0.75rem 0.5rem;
+            }
+            
+            .projects-table th:first-child,
+            .projects-table td:first-child {
+                min-width: 120px;
+                max-width: 150px;
+            }
+            
+            .projects-table th:nth-child(2),
+            .projects-table td:nth-child(2) {
+                min-width: 80px;
+            }
+            
+            .projects-table th:nth-child(3),
+            .projects-table td:nth-child(3) {
+                min-width: 100px;
+            }
+            
+            .status-badge {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.5rem;
+            }
+            
+            .progress-bar-custom {
+                min-width: 80px;
             }
         }
     </style>
@@ -530,7 +683,14 @@
                         <h3 class="projects-title">Recent Projects</h3>
                         <a href="#" class="view-all-link" id="viewAllProjects">View All</a>
                     </div>
-                    <table class="projects-table">
+                    <button class="scroll-btn scroll-btn-left" id="scrollLeftBtn" aria-label="Scroll left">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" id="scrollRightBtn" aria-label="Scroll right">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="projects-table-wrapper" id="projectsTableWrapper">
+                        <table class="projects-table">
                         <thead>
                             <tr>
                                 <th>Project</th>
@@ -567,7 +727,8 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
             
@@ -672,6 +833,11 @@
         
         // Initialize Charts
         function initCharts() {
+            // Check if dark theme is active
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const gridColor = isDark ? 'rgba(224, 224, 224, 0.1)' : '#e2e8f0';
+            const textColor = isDark ? '#E0E0E0' : '#4a5568';
+            
             // Revenue Trend Chart
             const revenueCtx = document.getElementById('revenueChart').getContext('2d');
             const defaultRevenueData = revenueData[90];
@@ -689,7 +855,7 @@
                         tension: 0.4,
                         pointRadius: 5,
                         pointBackgroundColor: '#4299e1',
-                        pointBorderColor: '#fff',
+                        pointBorderColor: isDark ? '#1A1A1A' : '#fff',
                         pointBorderWidth: 2
                     }]
                 },
@@ -710,15 +876,19 @@
                                 stepSize: (defaultRevenueData.max - defaultRevenueData.min) / 6,
                                 callback: function(value) {
                                     return '$' + value + (defaultRevenueData.max > 1000 ? '' : 'K');
-                                }
+                                },
+                                color: textColor
                             },
                             grid: {
-                                color: '#e2e8f0'
+                                color: gridColor
                             }
                         },
                         x: {
                             grid: {
                                 display: false
+                            },
+                            ticks: {
+                                color: textColor
                             }
                         }
                     }
@@ -753,15 +923,19 @@
                             beginAtZero: true,
                             max: defaultUserGrowthData.max,
                             ticks: {
-                                stepSize: defaultUserGrowthData.max / 6
+                                stepSize: defaultUserGrowthData.max / 6,
+                                color: textColor
                             },
                             grid: {
-                                color: '#e2e8f0'
+                                color: gridColor
                             }
                         },
                         x: {
                             grid: {
                                 display: false
+                            },
+                            ticks: {
+                                color: textColor
                             }
                         }
                     }
@@ -796,6 +970,10 @@
         
             // Initialize dashboard functionality
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize theme first (from main.js)
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            
             // Initialize charts
             initCharts();
             
@@ -899,6 +1077,64 @@
                     alert(`Activity: ${title}\n${description}\n\nClick OK to view details.`);
                 });
             });
+            
+            // Projects table scroll buttons
+            const projectsTableWrapper = document.getElementById('projectsTableWrapper');
+            const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+            const scrollRightBtn = document.getElementById('scrollRightBtn');
+            
+            if (projectsTableWrapper && scrollLeftBtn && scrollRightBtn) {
+                // Initially hide buttons on desktop
+                if (window.innerWidth > 768) {
+                    scrollLeftBtn.classList.add('hidden');
+                    scrollRightBtn.classList.add('hidden');
+                }
+                
+                // Show/hide buttons based on scroll position
+                function updateScrollButtons() {
+                    const wrapper = projectsTableWrapper;
+                    const scrollLeft = wrapper.scrollLeft;
+                    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+                    
+                    if (window.innerWidth <= 768) {
+                        scrollLeftBtn.classList.toggle('hidden', scrollLeft === 0);
+                        scrollRightBtn.classList.toggle('hidden', scrollLeft >= maxScroll - 1);
+                    } else {
+                        scrollLeftBtn.classList.add('hidden');
+                        scrollRightBtn.classList.add('hidden');
+                    }
+                }
+                
+                // Scroll functions
+                scrollLeftBtn.addEventListener('click', function() {
+                    projectsTableWrapper.scrollBy({
+                        left: -200,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                scrollRightBtn.addEventListener('click', function() {
+                    projectsTableWrapper.scrollBy({
+                        left: 200,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Update buttons on scroll
+                projectsTableWrapper.addEventListener('scroll', updateScrollButtons);
+                
+                // Update buttons on resize
+                window.addEventListener('resize', function() {
+                    updateScrollButtons();
+                    if (window.innerWidth > 768) {
+                        scrollLeftBtn.classList.add('hidden');
+                        scrollRightBtn.classList.add('hidden');
+                    }
+                });
+                
+                // Initial check
+                updateScrollButtons();
+            }
         });
     </script>
 </body>
