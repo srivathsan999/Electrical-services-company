@@ -4,10 +4,11 @@
 
 // Navbar HTML Template
 const navbarHTML = `
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-xl">
   <div class="container">
     <a class="navbar-brand" href="index.html">
-      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC107' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo">
+      Electrical Services
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -69,7 +70,10 @@ const footerHTML = `
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-6 mb-4">
-        <h5><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FFC107' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services</h5>
+        <a href="index.html" class="footer-brand">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo">
+          Electrical Services
+        </a>
         <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe electrical services for residential and commercial properties.</p>
         <div class="social-links mt-3">
           <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
@@ -110,7 +114,7 @@ const footerHTML = `
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Electrical Services Company. All rights reserved.</p>
+      <p>&copy; 2026 Electrical Services Company. All rights reserved.</p>
     </div>
   </div>
 </footer>
@@ -133,7 +137,7 @@ function loadFooter() {
 }
 
 // Load components on page load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   loadNavbar();
   loadFooter();
 });

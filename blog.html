@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Electrical tips, industry news, and expert advice from professional electricians">
     <title>Blog - Electrical Services Company</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E">
-    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" type="image/svg+xml">
-    
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E">
+    <link rel="alternate icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E"
+        type="image/svg+xml">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* Blog Card Link Styling */
@@ -22,44 +28,44 @@
             display: block;
             transition: var(--transition-base);
         }
-        
+
         .blog-card-link:hover {
             text-decoration: none;
             color: inherit;
         }
-        
+
         .blog-card-link .blog-card {
             transition: var(--transition-base);
             cursor: pointer;
             height: 100%;
         }
-        
+
         .blog-card-link:hover .blog-card {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
             border-color: var(--primary-color);
         }
-        
+
         .blog-card-link:hover .blog-card h3 {
             color: var(--primary-color);
         }
-        
+
         .blog-card-link .blog-card h3 {
             transition: var(--transition-base);
         }
-        
+
         /* Blog card body flexbox for Read More button */
         .blog-card-body {
             display: flex;
             flex-direction: column;
             min-height: 0;
         }
-        
+
         /* Add spacing between date and read more button */
-        .blog-card-body > div.mt-3 {
+        .blog-card-body>div.mt-3 {
             margin-bottom: 1rem;
         }
-        
+
         .blog-card-body .read-more-btn {
             margin-top: auto;
             align-self: flex-start;
@@ -77,13 +83,13 @@
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .blog-card-link:hover .blog-card-body .read-more-btn {
             background-color: var(--secondary-color);
             color: #fff;
             transform: translateX(5px);
         }
-        
+
         /* Mobile view - CTA buttons (Category Filter) improvements */
         @media (max-width: 767px) {
             .blog-filter-btn {
@@ -94,17 +100,17 @@
                 font-weight: 500 !important;
                 transition: all 0.3s ease !important;
             }
-            
+
             .blog-filter-btn:hover {
                 transform: translateY(-2px);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
             }
-            
+
             .blog-filter-btn.active {
                 font-weight: 600 !important;
                 box-shadow: 0 2px 6px rgba(33, 150, 243, 0.3);
             }
-            
+
             .blog-filter-container {
                 display: flex;
                 flex-wrap: wrap;
@@ -112,54 +118,57 @@
                 gap: 0.5rem;
                 padding: 0.5rem 0;
             }
-            
+
             .blog-filter-container .blog-filter-btn {
                 flex: 0 0 auto;
             }
-            
+
             .blog-card-body .read-more-btn {
                 padding: 0.45rem 1rem;
                 font-size: 0.85rem;
             }
         }
-        
+
         /* Dark mode styles for blog sidebar */
         [data-theme="dark"] .card-body .list-unstyled a {
             color: var(--text-color) !important;
             text-decoration: none;
             transition: var(--transition-base);
         }
-        
+
         [data-theme="dark"] .card-body .list-unstyled a:hover {
             color: var(--secondary-color) !important;
         }
-        
+
         [data-theme="dark"] .card-body .list-unstyled li {
             color: var(--text-color) !important;
         }
-        
+
         [data-theme="dark"] .card-body .list-unstyled .text-muted {
             color: var(--text-muted) !important;
         }
-        
+
         [data-theme="dark"] .card-body .list-unstyled small {
             color: var(--text-muted) !important;
         }
-        
+
         [data-theme="dark"] .card-title {
             color: var(--text-color) !important;
         }
-        
+
         [data-theme="dark"] .card-body p {
             color: var(--text-muted) !important;
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-xl">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services</a>
+            <a class="navbar-brand" href="index.html"><img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E"
+                    alt="Electrical Services Logo"> Electrical Services</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -217,121 +226,152 @@
 
                     <!-- Category Filter -->
                     <div class="mb-4 blog-filter-container">
-                        <button class="btn btn-outline-primary blog-filter-btn active" data-category="all" onclick="filterBlog('all')">All</button>
-                        <button class="btn btn-outline-primary blog-filter-btn" data-category="safety" onclick="filterBlog('safety')">Safety</button>
-                        <button class="btn btn-outline-primary blog-filter-btn" data-category="efficiency" onclick="filterBlog('efficiency')">Energy Efficiency</button>
-                        <button class="btn btn-outline-primary blog-filter-btn" data-category="smart" onclick="filterBlog('smart')">Smart Home</button>
-                        <button class="btn btn-outline-primary blog-filter-btn" data-category="tips" onclick="filterBlog('tips')">Tips</button>
+                        <button class="btn btn-outline-primary blog-filter-btn active" data-category="all"
+                            onclick="filterBlog('all')">All</button>
+                        <button class="btn btn-outline-primary blog-filter-btn" data-category="safety"
+                            onclick="filterBlog('safety')">Safety</button>
+                        <button class="btn btn-outline-primary blog-filter-btn" data-category="efficiency"
+                            onclick="filterBlog('efficiency')">Energy Efficiency</button>
+                        <button class="btn btn-outline-primary blog-filter-btn" data-category="smart"
+                            onclick="filterBlog('smart')">Smart Home</button>
+                        <button class="btn btn-outline-primary blog-filter-btn" data-category="tips"
+                            onclick="filterBlog('tips')">Tips</button>
                     </div>
 
                     <!-- Blog Posts -->
                     <div class="row g-4">
                         <div class="col-md-6" data-category="safety">
                             <a href="blog-details.html?post=1" class="blog-card-link">
-                            <div class="blog-card">
-                                <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&h=600&fit=crop" alt="Electrical Safety Tips" style="width: 100%; height: 200px; object-fit: cover;">
-                                <div class="blog-card-body">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&h=600&fit=crop"
+                                        alt="Electrical Safety Tips"
+                                        style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="blog-card-body">
                                         <div class="text-center mb-2">
                                             <span class="badge bg-primary">Electrical Safety</span>
                                         </div>
-                                    <h3>10 Electrical Safety Tips for Your Home</h3>
-                                    <p class="text-muted">Essential electrical safety tips every homeowner should know to protect their family and property.</p>
-                                    <div class="mt-3">
-                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i> March 15, 2024</small>
+                                        <h3>10 Electrical Safety Tips for Your Home</h3>
+                                        <p class="text-muted">Essential electrical safety tips every homeowner should
+                                            know to protect their family and property.</p>
+                                        <div class="mt-3">
+                                            <small class="text-muted"><i class="fas fa-calendar me-1"></i> March 15,
+                                                2024</small>
+                                        </div>
+                                        <span class="read-more-btn">Read More <i
+                                                class="fas fa-arrow-right ms-1"></i></span>
                                     </div>
-                                    <span class="read-more-btn">Read More <i class="fas fa-arrow-right ms-1"></i></span>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-md-6" data-category="efficiency">
                             <a href="blog-details.html?post=2" class="blog-card-link">
-                            <div class="blog-card">
-                                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&h=600&fit=crop" alt="LED Lighting" style="width: 100%; height: 200px; object-fit: cover;">
-                                <div class="blog-card-body">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800&h=600&fit=crop"
+                                        alt="LED Lighting" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="blog-card-body">
                                         <div class="text-center mb-2">
                                             <span class="badge bg-primary">Energy Efficiency</span>
                                         </div>
-                                    <h3>How LED Lighting Can Save You Money</h3>
-                                    <p>Discover how switching to LED lighting can significantly reduce your energy bills and carbon footprint.</p>
-                                    <div class="mt-3">
-                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i> March 10, 2024</small>
+                                        <h3>How LED Lighting Can Save You Money</h3>
+                                        <p>Discover how switching to LED lighting can significantly reduce your energy
+                                            bills and carbon footprint.</p>
+                                        <div class="mt-3">
+                                            <small class="text-muted"><i class="fas fa-calendar me-1"></i> March 10,
+                                                2024</small>
+                                        </div>
+                                        <span class="read-more-btn">Read More <i
+                                                class="fas fa-arrow-right ms-1"></i></span>
                                     </div>
-                                    <span class="read-more-btn">Read More <i class="fas fa-arrow-right ms-1"></i></span>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-md-6" data-category="smart">
                             <a href="blog-details.html?post=3" class="blog-card-link">
-                            <div class="blog-card">
-                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop" alt="Smart Home Technology" style="width: 100%; height: 200px; object-fit: cover;">
-                                <div class="blog-card-body">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop"
+                                        alt="Smart Home Technology"
+                                        style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="blog-card-body">
                                         <div class="text-center mb-2">
                                             <span class="badge bg-primary">Smart Home</span>
                                         </div>
-                                    <h3>Smart Home Technology Trends 2024</h3>
-                                    <p>Explore the latest trends in smart home technology and how they can enhance your living experience.</p>
-                                    <div class="mt-3">
-                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i> March 5, 2024</small>
+                                        <h3>Smart Home Technology Trends 2024</h3>
+                                        <p>Explore the latest trends in smart home technology and how they can enhance
+                                            your living experience.</p>
+                                        <div class="mt-3">
+                                            <small class="text-muted"><i class="fas fa-calendar me-1"></i> March 5,
+                                                2024</small>
+                                        </div>
+                                        <span class="read-more-btn">Read More <i
+                                                class="fas fa-arrow-right ms-1"></i></span>
                                     </div>
-                                    <span class="read-more-btn">Read More <i class="fas fa-arrow-right ms-1"></i></span>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-md-6" data-category="tips">
                             <a href="blog-details.html?post=4" class="blog-card-link">
-                            <div class="blog-card">
-                                <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop" alt="Electrical Panel" style="width: 100%; height: 200px; object-fit: cover;">
-                                <div class="blog-card-body">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&h=600&fit=crop"
+                                        alt="Electrical Panel" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="blog-card-body">
                                         <div class="text-center mb-2">
                                             <span class="badge bg-primary">Tips</span>
                                         </div>
-                                    <h3>When to Upgrade Your Electrical Panel</h3>
-                                    <p>Learn the signs that indicate it's time to upgrade your electrical panel for safety and efficiency.</p>
-                                    <div class="mt-3">
-                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i> February 28, 2024</small>
+                                        <h3>When to Upgrade Your Electrical Panel</h3>
+                                        <p>Learn the signs that indicate it's time to upgrade your electrical panel for
+                                            safety and efficiency.</p>
+                                        <div class="mt-3">
+                                            <small class="text-muted"><i class="fas fa-calendar me-1"></i> February 28,
+                                                2024</small>
+                                        </div>
+                                        <span class="read-more-btn">Read More <i
+                                                class="fas fa-arrow-right ms-1"></i></span>
                                     </div>
-                                    <span class="read-more-btn">Read More <i class="fas fa-arrow-right ms-1"></i></span>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-md-6" data-category="safety">
                             <a href="blog-details.html?post=5" class="blog-card-link">
-                            <div class="blog-card">
-                                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop" alt="GFCI Outlets" style="width: 100%; height: 200px; object-fit: cover;">
-                                <div class="blog-card-body">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop"
+                                        alt="GFCI Outlets" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="blog-card-body">
                                         <div class="text-center mb-2">
                                             <span class="badge bg-primary">Electrical Safety</span>
                                         </div>
-                                    <h3>Understanding GFCI Outlets</h3>
-                                    <p>A comprehensive guide to GFCI outlets, why they're important, and where they should be installed.</p>
-                                    <div class="mt-3">
-                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i> February 20, 2024</small>
+                                        <h3>Understanding GFCI Outlets</h3>
+                                        <p>A comprehensive guide to GFCI outlets, why they're important, and where they
+                                            should be installed.</p>
+                                        <div class="mt-3">
+                                            <small class="text-muted"><i class="fas fa-calendar me-1"></i> February 20,
+                                                2024</small>
+                                        </div>
+                                        <span class="read-more-btn">Read More <i
+                                                class="fas fa-arrow-right ms-1"></i></span>
                                     </div>
-                                    <span class="read-more-btn">Read More <i class="fas fa-arrow-right ms-1"></i></span>
                                 </div>
-                            </div>
                             </a>
                         </div>
                         <div class="col-md-6" data-category="efficiency">
                             <a href="blog-details.html?post=6" class="blog-card-link">
-                            <div class="blog-card">
-                                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop" alt="Energy Efficiency" style="width: 100%; height: 200px; object-fit: cover;">
-                                <div class="blog-card-body">
+                                <div class="blog-card">
+                                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=600&fit=crop"
+                                        alt="Energy Efficiency" style="width: 100%; height: 200px; object-fit: cover;">
+                                    <div class="blog-card-body">
                                         <div class="text-center mb-2">
                                             <span class="badge bg-primary">Energy Efficiency</span>
                                         </div>
-                                    <h3>Reducing Your Home's Energy Consumption</h3>
-                                    <p>Practical tips and strategies to reduce your home's energy consumption and lower utility bills.</p>
-                                    <div class="mt-3">
-                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i> February 15, 2024</small>
+                                        <h3>Reducing Your Home's Energy Consumption</h3>
+                                        <p>Practical tips and strategies to reduce your home's energy consumption and
+                                            lower utility bills.</p>
+                                        <div class="mt-3">
+                                            <small class="text-muted"><i class="fas fa-calendar me-1"></i> February 15,
+                                                2024</small>
+                                        </div>
+                                        <span class="read-more-btn">Read More <i
+                                                class="fas fa-arrow-right ms-1"></i></span>
                                     </div>
-                                    <span class="read-more-btn">Read More <i class="fas fa-arrow-right ms-1"></i></span>
                                 </div>
-                            </div>
                             </a>
                         </div>
                     </div>
@@ -353,10 +393,14 @@
                         <div class="card-body">
                             <h5 class="card-title text-center">Categories</h5>
                             <ul class="list-unstyled">
-                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Electrical Safety (12)</a></li>
-                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Energy Efficiency (8)</a></li>
-                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Smart Home (6)</a></li>
-                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Tips & Tricks (10)</a></li>
+                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Electrical Safety
+                                        (12)</a></li>
+                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Energy Efficiency
+                                        (8)</a></li>
+                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Smart Home (6)</a>
+                                </li>
+                                <li class="mb-2"><a href="#"><i class="fas fa-arrow-right me-2"></i>Tips & Tricks
+                                        (10)</a></li>
                             </ul>
                         </div>
                     </div>
@@ -401,8 +445,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h5><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services</h5>
-                    <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe electrical services for residential and commercial properties.</p>
+                    <a href="index.html" class="footer-brand">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E"
+                            alt="Electrical Services Logo">
+                        Electrical Services
+                    </a>
+                    <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe
+                        electrical services for residential and commercial properties.</p>
                     <div class="social-links mt-3">
                         <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
@@ -442,7 +491,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Electrical Services Company. All rights reserved.</p>
+                <p>&copy; 2026 Electrical Services Company. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -451,25 +500,25 @@
     <script src="assets/js/main.js"></script>
     <script>
         // Add search functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const searchInput = document.querySelector('.input-group .form-control');
             const searchBtn = document.querySelector('.input-group .btn-primary');
-            
+
             // Function to get only blog post cards (not filter buttons)
             function getBlogCards() {
                 return document.querySelectorAll('.row.g-4 [data-category]');
             }
-            
+
             if (searchBtn) {
-                searchBtn.addEventListener('click', function() {
+                searchBtn.addEventListener('click', function () {
                     const searchTerm = searchInput.value.toLowerCase().trim();
                     const cards = getBlogCards();
-                    
+
                     cards.forEach(card => {
                         const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
                         const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
                         const badge = card.querySelector('.badge')?.textContent.toLowerCase() || '';
-                        
+
                         if (!searchTerm || title.includes(searchTerm) || desc.includes(searchTerm) || badge.includes(searchTerm)) {
                             card.style.display = 'block';
                         } else {
@@ -477,22 +526,22 @@
                         }
                     });
                 });
-                
+
                 if (searchInput) {
-                    searchInput.addEventListener('keypress', function(e) {
+                    searchInput.addEventListener('keypress', function (e) {
                         if (e.key === 'Enter') {
                             searchBtn.click();
                         }
                     });
                 }
             }
-            
+
             // Add newsletter form functionality
             const forms = document.querySelectorAll('form');
             forms.forEach(form => {
                 const emailInput = form.querySelector('input[type="email"]');
                 if (emailInput) {
-                    form.addEventListener('submit', function(e) {
+                    form.addEventListener('submit', function (e) {
                         e.preventDefault();
                         const email = emailInput.value.trim();
                         if (email && email.includes('@')) {
@@ -507,4 +556,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -2,11 +2,11 @@
    Electrical Services Company - Main JavaScript
    ============================================ */
 
-(function() {
+(function () {
   'use strict';
 
   // Initialize on DOM ready
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     initThemeToggle();
     // initRTLToggle(); // RTL toggle removed
     initStickyNavbar();
@@ -21,16 +21,16 @@
   function initThemeToggle() {
     const themeToggle = document.querySelector('.theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
-    
+
     // Set initial theme
     document.documentElement.setAttribute('data-theme', currentTheme);
     updateThemeIcon(currentTheme);
-    
+
     if (themeToggle) {
-      themeToggle.addEventListener('click', function() {
+      themeToggle.addEventListener('click', function () {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
@@ -41,8 +41,8 @@
   function updateThemeIcon(theme) {
     const themeToggle = document.querySelector('.theme-toggle');
     if (themeToggle) {
-      themeToggle.innerHTML = theme === 'dark' 
-        ? '<i class="fas fa-sun"></i>' 
+      themeToggle.innerHTML = theme === 'dark'
+        ? '<i class="fas fa-sun"></i>'
         : '<i class="fas fa-moon"></i>';
     }
   }
@@ -51,16 +51,16 @@
   function initRTLToggle() {
     const rtlToggle = document.querySelector('.rtl-toggle');
     const currentDir = localStorage.getItem('dir') || 'ltr';
-    
+
     // Set initial direction
     document.documentElement.setAttribute('dir', currentDir);
     updateRTLIcon(currentDir);
-    
+
     if (rtlToggle) {
-      rtlToggle.addEventListener('click', function() {
+      rtlToggle.addEventListener('click', function () {
         const currentDir = document.documentElement.getAttribute('dir');
         const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
-        
+
         document.documentElement.setAttribute('dir', newDir);
         localStorage.setItem('dir', newDir);
         updateRTLIcon(newDir);
@@ -71,8 +71,8 @@
   function updateRTLIcon(dir) {
     const rtlToggle = document.querySelector('.rtl-toggle');
     if (rtlToggle) {
-      rtlToggle.innerHTML = dir === 'rtl' 
-        ? '<i class="fas fa-align-right"></i>' 
+      rtlToggle.innerHTML = dir === 'rtl'
+        ? '<i class="fas fa-align-right"></i>'
         : '<i class="fas fa-align-left"></i>';
     }
   }
@@ -83,15 +83,15 @@
     if (!navbar) return;
 
     let lastScroll = 0;
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       const currentScroll = window.pageYOffset;
-      
+
       if (currentScroll > 100) {
         navbar.classList.add('sticky');
       } else {
         navbar.classList.remove('sticky');
       }
-      
+
       lastScroll = currentScroll;
     });
   }
@@ -99,10 +99,10 @@
   // Smooth Scroll
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
         if (href === '#' || href === '#!') return;
-        
+
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
@@ -118,13 +118,13 @@
   // Animated Counters
   function initCounters() {
     const counters = document.querySelectorAll('.stats-counter .number');
-    
+
     const animateCounter = (counter) => {
       const target = parseInt(counter.getAttribute('data-target')) || parseInt(counter.textContent.replace('+', ''));
       const duration = 2000;
       const increment = target / (duration / 16);
       let current = 0;
-      
+
       const updateCounter = () => {
         current += increment;
         if (current < target) {
@@ -134,7 +134,7 @@
           counter.textContent = target + '+';
         }
       };
-      
+
       updateCounter();
     };
 
@@ -160,9 +160,9 @@
   // Form Validation
   function initFormValidation() {
     const forms = document.querySelectorAll('.needs-validation');
-    
+
     forms.forEach(form => {
-      form.addEventListener('submit', function(event) {
+      form.addEventListener('submit', function (event) {
         if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
@@ -178,7 +178,7 @@
     if (!scrollToTopBtn) return;
 
     // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
       if (window.pageYOffset > 300) {
         scrollToTopBtn.classList.add('show');
       } else {
@@ -187,7 +187,7 @@
     });
 
     // Scroll to top when button is clicked
-    scrollToTopBtn.addEventListener('click', function() {
+    scrollToTopBtn.addEventListener('click', function () {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -199,7 +199,7 @@
   function initMobileMenu() {
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
-    
+
     if (navbarToggler && navbarCollapse) {
       // Get or create Bootstrap collapse instance
       let bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
@@ -210,18 +210,18 @@
       }
 
       // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
+      document.addEventListener('click', function (event) {
         const isClickInside = navbarCollapse.contains(event.target) || navbarToggler.contains(event.target);
         if (!isClickInside && navbarCollapse.classList.contains('show')) {
           bsCollapse.hide();
         }
       });
-      
+
       // Close menu when clicking on nav links (mobile/tablet only)
       const navLinks = navbarCollapse.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item');
       navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          if (window.innerWidth < 992) {
+        link.addEventListener('click', function () {
+          if (window.innerWidth < 1200) {
             bsCollapse.hide();
           }
         });
@@ -230,11 +230,11 @@
   }
 
   // Pricing Toggle (Monthly/Yearly)
-  window.togglePricing = function() {
+  window.togglePricing = function () {
     const monthlyPrices = document.querySelectorAll('[data-monthly]');
     const yearlyPrices = document.querySelectorAll('[data-yearly]');
     const toggle = document.querySelector('.pricing-toggle');
-    
+
     if (toggle && toggle.checked) {
       // Show yearly prices
       monthlyPrices.forEach(el => el.style.display = 'none');
@@ -253,12 +253,12 @@
   }
 
   // Service Grid/List Toggle
-  window.toggleView = function(view) {
+  window.toggleView = function (view) {
     const gridView = document.querySelector('.services-grid');
     const listView = document.querySelector('.services-list');
     const gridBtn = document.querySelector('.view-grid');
     const listBtn = document.querySelector('.view-list');
-    
+
     if (view === 'grid') {
       gridView.style.display = 'grid';
       listView.style.display = 'none';
@@ -273,18 +273,18 @@
   };
 
   // Blog Category Filter
-  window.filterBlog = function(category) {
+  window.filterBlog = function (category) {
     // Only select blog post cards, not filter buttons
     const cards = document.querySelectorAll('.row.g-4 [data-category], .row [data-category].col-md-6');
     const filterBtns = document.querySelectorAll('.blog-filter-btn');
-    
+
     filterBtns.forEach(btn => {
       btn.classList.remove('active');
       if (btn.getAttribute('data-category') === category) {
         btn.classList.add('active');
       }
     });
-    
+
     cards.forEach(card => {
       const cardCategory = card.getAttribute('data-category');
       if (category === 'all' || cardCategory === category) {
@@ -296,7 +296,7 @@
   };
 
   // Admin Dashboard - Sidebar Toggle
-  window.toggleSidebar = function() {
+  window.toggleSidebar = function () {
     const sidebar = document.querySelector('.admin-sidebar');
     if (sidebar) {
       sidebar.classList.toggle('collapsed');

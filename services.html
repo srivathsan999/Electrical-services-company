@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Comprehensive electrical services for residential and commercial properties">
     <title>Our Services - Electrical Services Company</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E">
-    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" type="image/svg+xml">
-    
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E">
+    <link rel="alternate icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E"
+        type="image/svg+xml">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         .services-grid {
@@ -20,14 +26,16 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
+
         .services-list {
             display: none;
         }
-        
+
         /* Ensure grid is visible by default */
         .services-grid {
             display: grid;
         }
+
         .services-list .service-item {
             display: flex;
             justify-content: center;
@@ -37,35 +45,42 @@
             border-radius: 8px;
             margin-bottom: 0.75rem;
         }
-        .services-list .service-item > div {
+
+        .services-list .service-item>div {
             width: 100%;
         }
+
         .services-list .service-item .icon {
             margin-bottom: 0.5rem !important;
             text-align: center;
             display: flex;
             justify-content: center;
         }
+
         .services-list .service-item h3 {
             margin-bottom: 0.5rem;
             text-align: center;
         }
+
         .services-list .service-item p {
             margin-bottom: 0.75rem;
             text-align: center;
         }
+
         .services-list .service-item .btn {
             display: inline-block;
             margin: 0 auto;
             padding: 0.375rem 0.75rem;
             font-size: 0.875rem;
         }
+
         .view-toggle {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 2rem;
             margin-top: 1rem;
         }
+
         .view-toggle button {
             padding: 0.5rem 1rem;
             border: 1px solid var(--border-color);
@@ -76,61 +91,64 @@
             font-weight: 500;
             transition: var(--transition-base);
         }
+
         .view-toggle button:hover {
             background: var(--bg-light);
             border-color: var(--primary-color);
         }
+
         .view-toggle button.active {
             background: var(--primary-color);
             color: #FFFFFF;
             border-color: var(--primary-color);
         }
+
         .view-toggle button.active:hover {
             background: var(--secondary-color);
             border-color: var(--secondary-color);
         }
-        
+
         /* Dark mode styles for view toggle */
         [data-theme="dark"] .view-toggle button {
             background: var(--bg-light);
             border-color: var(--border-color);
             color: var(--text-color);
         }
-        
+
         [data-theme="dark"] .view-toggle button:hover {
             background: var(--bg-color);
             border-color: var(--secondary-color);
         }
-        
+
         [data-theme="dark"] .view-toggle button.active {
             background: var(--primary-color);
             color: #FFFFFF;
             border-color: var(--primary-color);
         }
-        
+
         [data-theme="dark"] .view-toggle button.active:hover {
             background: var(--secondary-color);
             border-color: var(--secondary-color);
             color: #FFFFFF;
         }
-        
+
         /* Mobile view fixes */
         @media (max-width: 767px) {
             body {
                 overflow-x: hidden;
             }
-            
+
             .container {
                 padding-left: 1rem;
                 padding-right: 1rem;
                 max-width: 100%;
             }
-            
+
             .section {
                 padding-left: 0;
                 padding-right: 0;
             }
-            
+
             /* Filter buttons mobile fix */
             .btn-group {
                 display: flex;
@@ -138,38 +156,38 @@
                 gap: 0.5rem;
                 width: 100%;
             }
-            
+
             .btn-group .btn {
                 flex: 1 1 auto;
                 min-width: 0;
                 font-size: 0.875rem;
                 padding: 0.5rem 0.75rem;
             }
-            
+
             /* Services grid mobile fix */
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 padding: 0 0.5rem;
             }
-            
+
             /* View toggle mobile fix */
             .d-flex.justify-content-between {
                 flex-direction: column;
                 gap: 1rem;
             }
-            
+
             .view-toggle {
                 width: 100%;
                 justify-content: center;
                 margin-top: 0;
             }
-            
+
             /* Service cards mobile padding */
             .service-card {
                 padding: 1.25rem;
             }
-            
+
             /* Service list mobile fix */
             .services-list .service-item {
                 padding: 1rem;
@@ -177,13 +195,35 @@
                 margin-right: 0.5rem;
             }
         }
+
+        /* Services alignment fix */
+        .service-card,
+        .service-item>div {
+            display: flex !important;
+            flex-direction: column !important;
+            height: 100%;
+        }
+
+        .service-card p,
+        .service-item p {
+            flex-grow: 1;
+        }
+
+        .service-card .btn,
+        .service-item .btn {
+            margin-top: auto !important;
+            align-self: center;
+        }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-xl">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services</a>
+            <a class="navbar-brand" href="index.html"><img
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E"
+                    alt="Electrical Services Logo"> Electrical Services</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -231,14 +271,20 @@
         <div class="container">
             <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                 <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-outline-primary active" onclick="filterServices('all')">All Services</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('residential')">Residential</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('commercial')">Commercial</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('emergency')">Emergency</button>
-                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('smart')">Smart Home</button>
+                    <button type="button" class="btn btn-outline-primary active" onclick="filterServices('all')">All
+                        Services</button>
+                    <button type="button" class="btn btn-outline-primary"
+                        onclick="filterServices('residential')">Residential</button>
+                    <button type="button" class="btn btn-outline-primary"
+                        onclick="filterServices('commercial')">Commercial</button>
+                    <button type="button" class="btn btn-outline-primary"
+                        onclick="filterServices('emergency')">Emergency</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterServices('smart')">Smart
+                        Home</button>
                 </div>
                 <div class="view-toggle">
-                    <button class="view-grid active" onclick="toggleView('grid')"><i class="fas fa-th"></i> Grid</button>
+                    <button class="view-grid active" onclick="toggleView('grid')"><i class="fas fa-th"></i>
+                        Grid</button>
                     <button class="view-list" onclick="toggleView('list')"><i class="fas fa-list"></i> List</button>
                 </div>
             </div>
@@ -248,37 +294,43 @@
                 <div class="service-card" data-category="residential">
                     <div class="icon"><i class="fas fa-plug"></i></div>
                     <h3>Installation</h3>
-                    <p>Professional installation of electrical systems, wiring, outlets, and fixtures for new constructions and renovations.</p>
+                    <p>Professional installation of electrical systems, wiring, outlets, and fixtures for new
+                        constructions and renovations.</p>
                     <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 <div class="service-card" data-category="residential commercial">
                     <div class="icon"><i class="fas fa-tools"></i></div>
                     <h3>Repairs</h3>
-                    <p>Regular maintenance and prompt repair services to keep your electrical systems running safely and efficiently.</p>
+                    <p>Regular maintenance and prompt repair services to keep your electrical systems running safely and
+                        efficiently.</p>
                     <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 <div class="service-card" data-category="emergency">
                     <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
                     <h3>Emergency</h3>
-                    <p>24/7 emergency electrical services to handle urgent issues and ensure your safety at any time of day.</p>
+                    <p>24/7 emergency electrical services to handle urgent issues and ensure your safety at any time of
+                        day.</p>
                     <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 <div class="service-card" data-category="smart residential">
                     <div class="icon"><i class="fas fa-home"></i></div>
                     <h3>Smart Home</h3>
-                    <p>Modern smart home automation including lighting control, security systems, and energy management.</p>
+                    <p>Modern smart home automation including lighting control, security systems, and energy management.
+                    </p>
                     <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 <div class="service-card" data-category="commercial">
                     <div class="icon"><i class="fas fa-building"></i></div>
                     <h3>Commercial</h3>
-                    <p>Complete electrical solutions for businesses, offices, retail spaces, and industrial facilities.</p>
+                    <p>Complete electrical solutions for businesses, offices, retail spaces, and industrial facilities.
+                    </p>
                     <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 <div class="service-card" data-category="residential commercial">
                     <div class="icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>LED Lighting</h3>
-                    <p>Energy-efficient LED lighting installation and upgrades to reduce costs and improve illumination.</p>
+                    <p>Energy-efficient LED lighting installation and upgrades to reduce costs and improve illumination.
+                    </p>
                     <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                 </div>
                 <div class="service-card" data-category="residential">
@@ -290,7 +342,8 @@
                 <div class="service-card" data-category="commercial">
                     <div class="icon"><i class="fas fa-industry"></i></div>
                     <h3>Industrial</h3>
-                    <p>Specialized electrical services for manufacturing facilities, warehouses, and industrial complexes.</p>
+                    <p>Specialized electrical services for manufacturing facilities, warehouses, and industrial
+                        complexes.</p>
                     <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                 </div>
             </div>
@@ -299,65 +352,81 @@
             <div class="services-list" id="servicesList">
                 <div class="service-item" data-category="residential">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-plug" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-plug"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>Installation</h3>
-                        <p>Professional installation of electrical systems, wiring, outlets, and fixtures for new constructions and renovations.</p>
+                        <p>Professional installation of electrical systems, wiring, outlets, and fixtures for new
+                            constructions and renovations.</p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="service-item" data-category="residential commercial">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-tools" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-tools"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>Repairs</h3>
-                        <p>Regular maintenance and prompt repair services to keep your electrical systems running safely and efficiently.</p>
+                        <p>Regular maintenance and prompt repair services to keep your electrical systems running safely
+                            and efficiently.</p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="service-item" data-category="emergency">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-exclamation-triangle"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>Emergency</h3>
-                        <p>24/7 emergency electrical services to handle urgent issues and ensure your safety at any time of day.</p>
+                        <p>24/7 emergency electrical services to handle urgent issues and ensure your safety at any time
+                            of day.</p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="service-item" data-category="smart residential">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-home" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-home"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>Smart Home</h3>
-                        <p>Modern smart home automation including lighting control, security systems, and energy management.</p>
+                        <p>Modern smart home automation including lighting control, security systems, and energy
+                            management.</p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="service-item" data-category="commercial">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-building" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-building"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>Commercial</h3>
-                        <p>Complete electrical solutions for businesses, offices, retail spaces, and industrial facilities.</p>
+                        <p>Complete electrical solutions for businesses, offices, retail spaces, and industrial
+                            facilities.</p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="service-item" data-category="residential commercial">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-lightbulb"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>LED Lighting</h3>
-                        <p>Energy-efficient LED lighting installation and upgrades to reduce costs and improve illumination.</p>
+                        <p>Energy-efficient LED lighting installation and upgrades to reduce costs and improve
+                            illumination.</p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="service-item" data-category="residential">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-bolt" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-bolt"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>Panel Upgrades</h3>
-                        <p>Electrical panel upgrades and replacements to meet modern power demands and improve safety.</p>
+                        <p>Electrical panel upgrades and replacements to meet modern power demands and improve safety.
+                        </p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
                 <div class="service-item" data-category="commercial">
                     <div class="text-center">
-                        <div class="icon mb-3"><i class="fas fa-industry" style="font-size: 3rem; color: var(--primary-color);"></i></div>
+                        <div class="icon mb-3"><i class="fas fa-industry"
+                                style="font-size: 3rem; color: var(--primary-color);"></i></div>
                         <h3>Industrial</h3>
-                        <p>Specialized electrical services for manufacturing facilities, warehouses, and industrial complexes.</p>
+                        <p>Specialized electrical services for manufacturing facilities, warehouses, and industrial
+                            complexes.</p>
                         <a href="service-details.html" class="btn btn-outline-primary">Learn More</a>
                     </div>
                 </div>
@@ -370,8 +439,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4">
-                    <h5><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E" alt="Electrical Services Logo"> Electrical Services</h5>
-                    <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe electrical services for residential and commercial properties.</p>
+                    <a href="index.html" class="footer-brand">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233E92CC' d='M50 10L30 50h20v40l20-40H50V10z'/%3E%3C/svg%3E"
+                            alt="Electrical Services Logo">
+                        Electrical Services
+                    </a>
+                    <p>Your trusted partner for all electrical needs. We provide professional, reliable, and safe
+                        electrical services for residential and commercial properties.</p>
                     <div class="social-links mt-3">
                         <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
@@ -411,7 +485,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Electrical Services. All rights reserved.</p>
+                <p>&copy; 2026 Electrical Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -422,14 +496,14 @@
         function filterServices(category) {
             const cards = document.querySelectorAll('.service-card, .service-item');
             const buttons = document.querySelectorAll('.btn-group button');
-            
+
             buttons.forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent.includes('All'))) {
                     btn.classList.add('active');
                 }
             });
-            
+
             cards.forEach(card => {
                 const cardCategories = card.getAttribute('data-category');
                 if (category === 'all' || cardCategories.includes(category)) {
@@ -439,13 +513,13 @@
                 }
             });
         }
-        
+
         function toggleView(viewType) {
             const gridView = document.getElementById('servicesGrid');
             const listView = document.getElementById('servicesList');
             const gridButton = document.querySelector('.view-grid');
             const listButton = document.querySelector('.view-list');
-            
+
             if (viewType === 'grid') {
                 gridView.style.display = 'grid';
                 listView.style.display = 'none';
@@ -460,5 +534,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>
